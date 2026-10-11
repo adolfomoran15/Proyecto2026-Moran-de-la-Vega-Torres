@@ -17,7 +17,7 @@
     <title>Recetario S.E.S</title>
 </head>
 
-<body onload="mostrarRecetaIndividual(), cantidadPorciones(), recetasCortas();">
+<body onload="mostrarRecetaIndividual(); cantidadPorciones(); recetasCortas();">
     <div id="contenedor-header">
         <header id="header-principal">
             <img src="imagenes/logo_header.png" alt="Sándwich, Sopa o Ensalada" id="logo-sitio">
@@ -35,16 +35,14 @@
             ← Volver a recetas
         </button>
         <section id="informacion-recetas">
-            <aside id="img-receta" class="imagen-receta">
-            </aside>
+            <div id="img-receta" class="imagen-receta">
+            </div>
 
             <div id="texto-receta">
 
                 <span id="categoria-receta" class="etiqueta-plato"></span>
 
-                <h3 id="nombre-plato">
-
-                </h3>
+                <h3 id="nombre-plato"></h3>
                 <p id="descripcion-receta"> </p>
 
                 <hr>
@@ -71,7 +69,7 @@
                     <div class="controles-calculadora">
                         <label for="input-porciones" class="label-calculadora">Cantidad de porciones</label>
                         <input type="number" value="1" id="input-porciones" min="1" size="5"
-                            placeholder="Ingresá las porciones" aria-label="Número base de porciones" max="60">
+                            placeholder="Ingresá las porciones" max="60">
                         <button type="button" aria-label="Calcular ingredientes para el número de porciones elegido"
                             onclick="if (validarPorciones()) { cantidadPorciones(); mostrarRecetaIndividual(); }">
                             Calcular
@@ -83,9 +81,7 @@
                     <h5>
                         Ingredientes
                     </h5>
-                    <ul id="ingredientes">
-
-                    </ul>
+                    <ul id="ingredientes"></ul>
                 </div>
             </div>
 
@@ -93,9 +89,7 @@
                 <h5>
                     Preparación
                 </h5>
-                <ol id="pasos" class="lista-pasos">
-
-                </ol>
+                <ol id="pasos" class="lista-pasos"></ol>
             </div>
         </div>
 
@@ -108,9 +102,7 @@
                 </h5>
                 <a href="recetas.html" class="ver-todo">Ver todo &rarr;</a>
             </div>
-            <div id="recetas-cortas" class="grid-recetas">
-
-            </div>
+            <div id="recetas-cortas" class="grid-recetas"></div>
         </div>
     </main>
 
@@ -122,12 +114,9 @@
             </div>
             <nav id="nav-sitio">
                 <a href="index.html" id="flink-inicio">Inicio</a>
-
                 <a href="recetas.html" id="flink-recetas">Recetas</a>
-
                 <a href="contacto.html" id="flink-contacto">Contacto</a>
             </nav>
-
         </footer>
     </div>
     <script type="text/javascript" src="script.js"></script>
