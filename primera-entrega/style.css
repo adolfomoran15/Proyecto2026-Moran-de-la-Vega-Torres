@@ -297,23 +297,35 @@ footer #nav-sitio a:focus::after {
     line-height: 1.5;
 }
 
+.boton-ver-receta,
+#boton-buscar,
+#boton-aplicar-filtros,
+.contenedor-form #enviar,
+.calculadora-porciones .controles-calculadora button {
+    background-color: var(--color-header);
+    color: var(--color-blanco);
+    font-family: var(--fuente-texto);
+    cursor: pointer;
+}
+
+.boton-ver-receta:hover,
+#boton-buscar:hover,
+.contenedor-form #enviar:hover,
+.calculadora-porciones .controles-calculadora button:hover {
+    background-color: var(--color-principal);
+}
 
 .boton-ver-receta {
-    font-family: var(--fuente-texto);
     margin-inline: 1.5rem;
     margin-bottom: 1.5rem;
     margin-top: auto;
     padding: 0.7rem 1.2rem;
     border: none;
     border-radius: 5px;
-    background-color: var(--color-header);
-    color: var(--color-blanco);
-    cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .boton-ver-receta:hover {
-    background-color: var(--color-principal);
     transform: translateY(-2px);
 }
 
@@ -371,18 +383,12 @@ footer #nav-sitio a:focus::after {
 }
 
 #boton-buscar {
-    background-color: var(--color-header);
-
-    color: var(--color-blanco);
     border: 1px solid var(--color-blanco);
     padding: 0.6rem 1.2rem;
     border-radius: 8px;
-    cursor: pointer;
-    font-family: var(--fuente-texto);
 }
 
 #boton-buscar:hover {
-    background-color: var(--color-principal);
     transform: translateY(-2px);
     transition: all 0.5s ease;
 
@@ -522,11 +528,6 @@ footer #nav-sitio a:focus::after {
 
 }
 
-#boton-aplicar-filtros {
-    background-color: var(--color-header);
-    color: var(--color-blanco);
-}
-
 #boton-aplicar-filtros:hover,
 #boton-limpiar-filtros:hover {
     transform: translateY(-2px);
@@ -632,15 +633,10 @@ footer #nav-sitio a:focus::after {
     padding: 0.7rem 1.8rem;
     border: none;
     border-radius: 8px;
-    background-color: var(--color-header);
-    color: var(--color-blanco);
-    font-family: var(--fuente-texto);
     font-weight: 500;
-    cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
 
     &:hover {
-        background-color: var(--color-principal);
         transform: translateY(-2px);
     }
 }
@@ -809,16 +805,8 @@ footer #nav-sitio a:focus::after {
     border: none;
     border-radius: 6px;
     align-self: center;
-    background-color: var(--color-header);
-    color: var(--color-blanco);
-    font-family: var(--fuente-texto);
     font-weight: 600;
-    cursor: pointer;
     transition: background-color 0.3s ease;
-
-    &:hover {
-        background-color: var(--color-principal);
-    }
 }
 
 /* LISTA DE INGREDIENTES */
