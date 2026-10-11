@@ -456,9 +456,25 @@ footer #nav-sitio a:focus::after {
     cursor: pointer;
 }
 
-#filtros label input[type="checkbox"] {
-    margin-right: 0.5rem;
+#filtro-ingrediente {
+    display: grid;
+    grid-template-columns: max-content max-content;
+    grid-auto-flow: row dense;
+    align-items: center;
+    column-gap: 0.6rem;
+}
+
+#filtro-ingrediente h3 {
+    grid-column: 1 / -1;
+}
+
+#filtros input[type="checkbox"] {
     accent-color: var(--color-header);
+    grid-column: 1;
+}
+
+#filtro-ingrediente label {
+    grid-column: 2;
 }
 
 #select-tiempo,

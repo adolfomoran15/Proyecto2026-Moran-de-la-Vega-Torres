@@ -413,13 +413,13 @@ const mostrarIngredientes = (listIngredientes) => {
 
         contenido +=
             `
-                <li aria-label="ingrediente ${ingr.nombre}">
-                    <label for="ingrediente-${num}">
-                    <input type="checkbox" id="ingrediente-${num}">
-                    <span class="cantidad-ingrediente">${total} ${ingr.unidad}</span>
-                    <span class="nombre-ingrediente"> ${ingr.nombre}</span>
-                    </label>
-                </li>`;
+        <li aria-label="ingrediente ${ingr.nombre}">
+            <input type="checkbox" id="ingrediente-${num}">
+            <label for="ingrediente-${num}">
+            <span class="cantidad-ingrediente">${total} ${ingr.unidad}</span>
+            <span class="nombre-ingrediente"> ${ingr.nombre}</span>
+            </label>
+        </li>`;
     });
     document.getElementById('ingredientes').innerHTML = contenido;
 }
