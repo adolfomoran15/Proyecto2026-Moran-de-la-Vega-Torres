@@ -334,7 +334,7 @@ const recetas = [
 ];
 let posicionCarrusel = 0;
 /**
- * Mostrar la receta en la pagina calcular-receta
+ * Muestra la receta en la página de calcular receta
  * @method mostrarRecetaIndividual
  */
 const mostrarRecetaIndividual = () => {
@@ -377,24 +377,24 @@ const mostrarRecetaIndividual = () => {
 
         document.getElementById('pasos').innerHTML = contenidoPasos;
     }
-}
+};
 
 /**
- * Redirigir a la pagina de calcular receta
+ * Redirige a la página de calcular receta
  * @method verReceta
  * @param {string} idReceta - Id de la receta que se quiere ver
  */
 const verReceta = (idReceta) => {
     window.location.href = `calcular_receta.html?receta=${idReceta}`;
-}
+};
 
 /**
- * Mostrar la cantidad de porciones que se estan calculando
+ * Muestra la cantidad de porciones que se están calculando
  * @method cantidadPorciones
  */
 const cantidadPorciones = () => {
     document.getElementById('cantidad').innerText = document.getElementById('input-porciones').value;
-}
+};
 
 /**
  * Mostrar los ingredientes teniendo en cuenta la cantidad de porciones que ingresa el usuario
@@ -422,7 +422,7 @@ const mostrarIngredientes = (listIngredientes) => {
         </li>`;
     });
     document.getElementById('ingredientes').innerHTML = contenido;
-}
+};
 
 /**
  * Mostrar otras recetas cortas de forma aleatoria
@@ -465,11 +465,10 @@ const recetasCortas = () => {
     });
 
     document.getElementById('recetas-cortas').innerHTML = contenido;
-}
-
+};
 
 /**
- * Filtra las recetas por valores ingresados por el usuario(categoria, tiempo, teoria, ingredientes)
+ * Filtra las recetas por los valores elegidos por el usuario (categoría, tiempo, teoría e ingredientes)
  * @method aplicarFiltros
  */
 const aplicarFiltros = () => {
@@ -531,11 +530,10 @@ const aplicarFiltros = () => {
         });
     }
     mostrarRecetas(newRecetas, "grilla-recetas");
-}
-
+};
 
 /**
- *  Muestra una lista de recetas en el catálogo
+ * Muestra una lista de recetas en el catálogo
  * @method mostrarRecetas
  * @param {Array} lista - Lista de recetas que se desea mostrar
  * @param {string} idContenedor - Id del contenedor donde se mostrarán las recetas
@@ -594,9 +592,9 @@ const cargarRecetas = () => {
 
 /**
  * Carga las recetas destacadas en el carrusel
- * @method CargarDestacadas
+ * @method cargarDestacadas
  */
-const CargarDestacadas = () => {
+const cargarDestacadas = () => {
     const lista = document.getElementById("lista-destacadas");
 
     if (lista) {
@@ -637,7 +635,7 @@ const moverCarrusel = direccion => {
 };
 
 /**
- * filtra recetas por palabra
+ * Valida la palabra buscada y, si es válida, la guarda y abre el catálogo de recetas
  * @method filtrarReceta
  */
 const filtrarReceta = () => {
@@ -684,7 +682,6 @@ const volverRecetas = () => {
     window.location.href = "recetas.html";
 };
 
-
 /**
  * Valida que la cantidad de porciones ingresada sea un número válido y mayor a cero.
  * Si no lo es, avisa al usuario con un alert y vacía el campo.
@@ -707,8 +704,6 @@ const validarPorciones = () => {
     }
     return true;
 };
-
-
 
 /**
  * Valida el formulario de contacto. Si un campo es inválido, avisa con un alert
