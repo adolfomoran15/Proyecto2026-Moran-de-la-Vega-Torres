@@ -4,6 +4,7 @@ import Input from '@components/Input';
 import Button from '@components/Button';
 import Card from '@components/Card';
 import { getRecetas } from '@api/recetasApi';
+import '@styles/Inicio.scss';
 
 const soloLetras = /^[A-Za-zÀ-ÿñÑ\s]+$([ñÑ\s]*[A-Za-zÀ-ÿñÑ\s]+)*$/;
 
