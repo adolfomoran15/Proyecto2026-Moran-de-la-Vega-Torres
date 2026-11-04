@@ -1,0 +1,104 @@
+.contenedor-texto {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--color-texto);
+    margin: 2rem 0;
+}
+ 
+.contenedor-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto 2rem;
+    text-align: left;
+    gap: 0.4rem;
+ 
+    label {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--color-texto);
+        margin-top: 0.6rem;
+    }
+ 
+    input[type="text"],
+    input[type="email"] {
+        width: 100%;
+        padding: 0.7rem 0.9rem;
+        border: 1px solid var(--color-borde);
+        border-radius: 8px;
+        background-color: var(--color-blanco);
+        font-family: var(--fuente-texto);
+        font-size: 0.95rem;
+ 
+        &:focus {
+            outline: none;
+            border-color: var(--color-secundario);
+        }
+    }
+ 
+    #input-mensaje {
+        padding-bottom: 3rem;
+    }
+}
+ 
+.boton-enviar {
+    align-self: center;
+    margin-top: 1rem;
+    padding: 0.7rem 1.8rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+ 
+    &:hover {
+        transform: translateY(-2px);
+    }
+}
+ 
+.estado-envio {
+    align-self: center;
+    font-weight: 600;
+    color: var(--color-principal);
+}
+ 
+.icono-red-social {
+    width: 2rem;
+    height: 2rem;
+    object-fit: contain;
+}
+ 
+.redes-sociales {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+ 
+    p {
+        font-size: 1.2rem;
+        font-weight: 500;
+        color: var(--color-texto);
+    }
+}
+ 
+.redes-sociales-items {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+    flex-wrap: wrap;
+ 
+    article {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        background-color: var(--color-blanco);
+        padding: 0.8rem 1.2rem;
+        margin-bottom: 1rem;
+        border-radius: 10px;
+        border: 1px solid var(--color-borde);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+}

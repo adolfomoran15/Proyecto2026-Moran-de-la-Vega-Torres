@@ -10,6 +10,7 @@ _La teoría culinaria que todavía no resolvimos._
 - [Tecnologías utilizadas](#tecnologías-utilizadas)
 - [Funcionalidades](#funcionalidades)
 - [Estructura del proyecto](#estructura-del-proyecto)
+- [Pasos de ejecución](#pasos-de-ejecución)
 - [Cómo ver el proyecto](#cómo-ver-el-proyecto)
 
 ## Integrantes
@@ -26,20 +27,32 @@ El nombre viene de una teoría culinaria que todavía no resolvimos. Según inte
 
 El sitio tiene cuatro páginas, a las que se llega desde el menú de arriba o desde el pie de página.
 
-| Página   | Archivo                | Qué contiene                                                                                     |
-| -------- | ---------------------- | -------------------------------------------------------------------------------------------------|
-| Inicio   | `index.html`           | Buscador de recetas y carrusel con las recetas destacadas                                        |
-| Recetas  | `recetas.html`         | Catálogo con todas las recetas y sus filtros                                                     |
-| Receta   | `calcular_receta.html` | Foto, tiempo y porciones de la receta, calculadora, lista de ingredientes, pasos y otras recetas |
-| Contacto | `contacto.html`        | Formulario de contacto y redes sociales                                                          |
+| Página   | Archivo (primera entrega) | Ruta (segunda entrega) | Qué contiene                                                                                     |
+| -------- | ------------------------- | ---------------------- | -------------------------------------------------------------------------------------------------|
+| Inicio   | `index.html`              | `/`                    | Buscador de recetas y carrusel con las recetas destacadas                                        |
+| Recetas  | `recetas.html`            | `/recetas`             | Catálogo con todas las recetas y sus filtros                                                     |
+| Receta   | `calcular_receta.html`    | `/receta/:id`          | Foto, tiempo y porciones de la receta, calculadora, lista de ingredientes, pasos y otras recetas |
+| Contacto | `contacto.html`           | `/contacto`            | Formulario de contacto y redes sociales                                                          |
 
 ## Tecnologías utilizadas
+
+### Primera entrega
 
 - HTML5
 - CSS3
 - JavaScript
 - Git y GitHub Pages
 - Figma
+
+### Segunda entrega
+
+- React
+- Vite
+- React Router DOM
+- SASS (SCSS)
+- JSON Server (mock de servicios)
+- ESLint
+- Git y GitHub
 
 ### Fuentes
 
@@ -70,15 +83,56 @@ Proyecto2026-Moran-de-la-Vega-Torres/
 │   ├── imagenes/
 │   ├── Sketch/
 │   └── Mockup/
+├── segunda-entrega/
+│   └── recetario/
+│       ├── public/
+│       ├── src/
+│       │   ├── api/
+│       │   ├── assets/
+│       │   ├── components/
+│       │   ├── pages/
+│       │   ├── styles/
+│       │   ├── App.jsx
+│       │   └── main.jsx
+│       ├── db.json
+│       ├── index.html
+│       ├── package.json
+│       └── vite.config.js
 └── README.md
 ```
 
 - `imagenes/`: logo, favicon, íconos de redes y fotos de las recetas.
 - `Sketch/`: boceto en papel (versión escritorio y celular).
 - `Mockup/`: diseño en Figma (versión escritorio y celular).
+- `segunda-entrega/recetario/`: versión en React del recetario.
+  - `public/`: archivos estáticos (favicon e imágenes de las recetas).
+  - `src/api/`: funciones que consultan el mock de servicios.
+  - `src/assets/`: imágenes importadas desde el código.
+  - `src/components/`: componentes reutilizables.
+  - `src/pages/`: páginas de cada ruta.
+  - `src/styles/`: archivos de estilos `.scss`.
+  - `db.json`: datos del mock de servicios.
+
+## Pasos de ejecución
+
+1. Clonar el repositorio:
+   `git clone https://github.com/adolfomoran15/Proyecto2026-Moran-de-la-Vega-Torres.git`
+2. Entrar a la carpeta del proyecto React:
+   `cd Proyecto2026-Moran-de-la-Vega-Torres/segunda-entrega/recetario`
+3. Instalar las dependencias:
+   `npm install`
+4. Crear un archivo `.env` dentro de `recetario` con:
+   `VITE_BASE_URL = "http://localhost:4000/"`
+5. Levantar la aplicación y el mock de servicios:
+   `npm start`
+   - Solo la aplicación: `npm run dev` → http://localhost:5173
+   - Solo el mock: `npm run server` → http://localhost:4000
+
 
 ## Cómo ver el proyecto
 
 🔗 **Link a GitHub Pages:** [Recetario S.E.S](https://adolfomoran15.github.io/Proyecto2026-Moran-de-la-Vega-Torres/primera-entrega/index.html)
 
 🔗 **Mockup (Figma):** [Recetario S.E.S (mockup)](https://top-grit-76826006.figma.site/)
+
+La segunda entrega se ejecuta de forma local siguiendo los [pasos de ejecución](#pasos-de-ejecución).

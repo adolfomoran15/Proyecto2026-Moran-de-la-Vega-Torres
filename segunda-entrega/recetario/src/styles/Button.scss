@@ -1,0 +1,16 @@
+.boton-ver-receta,
+.boton-buscar,
+.boton-aplicar-filtros,
+.boton-enviar {
+    background-color: var(--color-header);
+    color: var(--color-blanco);
+    font-family: var(--fuente-texto);
+    cursor: pointer;
+}
+ 
+.boton-ver-receta:hover,
+.boton-buscar:hover,
+.boton-enviar:hover {
+    background-color: var(--color-principal);
+}
+ 
