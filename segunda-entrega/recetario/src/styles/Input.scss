@@ -1,0 +1,10 @@
+.mensaje-error {
+    margin: 0.2rem 0 0;
+    color: rgba(194, 0, 0, 0.922);
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+ 
+input[aria-invalid="true"] {
+    border-color: rgba(194, 0, 0, 0.922);
+}

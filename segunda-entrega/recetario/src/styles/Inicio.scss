@@ -1,0 +1,135 @@
+#hero {
+    position: relative;
+    width: 100%;
+    height: 420px;
+    margin-top: 2rem;
+    background-image: url("/imagenes/imagen_main_index.jpg");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-color: rgba(0, 0, 0, 0.511);
+    }
+}
+
+#texto-hero {
+    position: relative;
+    z-index: 2;
+    width: 80%;
+    text-align: center;
+    color: var(--color-blanco);
+
+    h2 {
+        font-family: var(--fuente-decorativa);
+        font-size: 3.2rem;
+        font-weight: 600;
+        font-style: italic;
+        margin: 0 0 1rem;
+    }
+}
+
+#buscador {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+
+    .mensaje-error {
+        flex-basis: 100%;
+        order: 3;
+        color: var(--color-blanco);
+    }
+}
+
+#input-buscar-recetas {
+    width: 50%;
+    padding: 0.6rem 0.4rem;
+    border: 1px solid var(--color-borde);
+    border-radius: 8px;
+    background-color: var(--color-fondo);
+    font-family: var(--fuente-texto);
+    font-size: 0.88rem;
+
+    &:focus {
+        outline: none;
+        border-color: var(--color-secundario);
+    }
+
+    &::placeholder {
+        font-style: italic;
+    }
+}
+
+.boton-buscar {
+    border: 1px solid var(--color-blanco);
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+
+    &:hover {
+        transform: translateY(-2px);
+        transition: all 0.5s ease;
+    }
+}
+
+#contenedor-destacadas {
+    width: 100%;
+    padding: 5rem 0 3.5rem;
+}
+
+#recetas-destacadas {
+    width: 100%;
+    text-align: center;
+
+    h2 {
+        font-family: var(--fuente-texto);
+        color: var(--color-texto);
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+}
+
+#carrusel-destacadas {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+}
+
+#ventana-destacadas {
+    width: 53%;
+    overflow: hidden;
+}
+
+#lista-destacadas {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+    transition: transform 0.4s ease;
+}
+
+.boton-flecha {
+    width: 42px;
+    height: 42px;
+    border: none;
+    border-radius: 50%;
+    background-color: var(--color-header);
+    color: var(--color-blanco);
+    font-size: 1.8rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+
+    &:hover {
+        background-color: var(--color-principal);
+        transform: scale(1.08);
+    }
+}
