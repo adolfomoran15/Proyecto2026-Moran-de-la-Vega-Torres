@@ -1,10 +1,61 @@
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Input from '@components/Input';
 import Button from '@components/Button';
 import Card from '@components/Card';
+import { getRecetas } from '@api/recetasApi';
 
+const soloLetras = /^[A-Za-zÀ-ÿñÑ\s]+$([ñÑ\s]*[A-Za-zÀ-ÿñÑ\s]+)*$/;
 
 const Inicio = () => {
+    const [busqueda, setBusqueda] = useState('');
+    const [errorBusqueda, setErrorBusqueda] = useState('');
+    const [recetas, setRecetas] = useState([]);
+    const [posicionCarrusel, setPosicionCarrusel] = useState(0);
+    const navigate = useNavigate();
 
+    useEffect(() => {
+        const cargarDatos = async () => {
+            try {
+                const data = await getRecetas();
+                setRecetas(data);
+            } catch (error) {
+                console.error('No se pudieron cargar las recetas:', error);
+            }
+        };
+        cargarDatos();
+    }, []);
+
+    const recetasDestacadas = recetas.filter(receta => receta.destacada);
+
+    const handleBusquedaChange = (e) => {
+        const valor = e.target.value;
+        setBusqueda(valor);
+        if (errorBusqueda) setErrorBusqueda('');
+    };
+
+    const handleFiltrarReceta = (e) => {
+        e.preventDefault();
+        const searchWord = busqueda.trim();
+
+        if (searchWord === '' || !soloLetras.test(searchWord)) {
+            setErrorBusqueda('Escribí solo letras para buscar una receta.');
+            setBusqueda('');
+            return;
+        }
+
+        localStorage.setItem('searchWord', searchWord);
+        navigate('/recetas');
+    };
+
+    const moverCarrusel = (direccion) => {
+        const cantidadRecetas = recetasDestacadas.length || 1;
+        if (direccion === 'derecha') {
+            setPosicionCarrusel((prev) => (prev + 1) % cantidadRecetas);
+        } else if (direccion === 'izquierda') {
+            setPosicionCarrusel((prev) => (prev - 1 + cantidadRecetas) % cantidadRecetas);
+        }
+    };
     return (
         <main id="contenido-principal" className="pagina-inicio">
             <section id="hero">
