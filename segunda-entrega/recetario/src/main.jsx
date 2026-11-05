@@ -4,6 +4,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Layout from '@components/Layout.jsx';
 import Inicio from '@pages/Inicio.jsx';
 import Recetas from '@pages/Recetas.jsx';
+import Contacto from "@pages/Contacto.jsx";
+import Receta from "@pages/Receta.jsx";
 import '@styles/main.scss';
 
 createRoot(document.getElementById('root')).render(
@@ -13,6 +15,8 @@ createRoot(document.getElementById('root')).render(
                 <Route path="/" element={<Layout />}>
                     <Route index element={<Inicio />} />
                     <Route path="recetas" element={<Recetas />} />
+                    <Route path="contacto" element={<Contacto />} />
+                    <Route path="receta" element={<Receta />} />
                 </Route>
             </Routes>
         </BrowserRouter>
