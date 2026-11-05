@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-
 import Button from '@components/Button';
 import Card from '@components/Card';
 import { getRecetas } from '@api/recetasApi';
@@ -21,7 +20,6 @@ const Recetas = () => {
         cebolla: false,
         harina: false,
     });
-    
 
     // Cargar recetas al iniciar el componente y verificar si hay una búsqueda previa en localStorage
     useEffect(() => {
@@ -199,14 +197,14 @@ const Recetas = () => {
                     <h2>Todas las recetas</h2>
                     <div id="grilla-recetas">
                         {recetasFiltradas.map((receta) => (
-                                <Card
-                                    key={receta.id}
-                                    id={receta.id}
-                                    imagen={receta.imagen}
-                                    nombre={receta.nombre}
-                                    texto={receta.descripcion}
-                                />
-                                ))}
+                            <Card 
+                                key={receta.id} 
+                                id={receta.slug} 
+                                imagen={receta.imagen}
+                                nombre={receta.nombre}
+                                texto={receta.descripcion}
+                            />
+                        ))}
                     </div>
                 </section>
             </div>

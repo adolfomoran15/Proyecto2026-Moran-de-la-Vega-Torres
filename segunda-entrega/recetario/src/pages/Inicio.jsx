@@ -12,7 +12,6 @@ const Inicio = () => {
     const [busqueda, setBusqueda] = useState('');
     const [errorBusqueda, setErrorBusqueda] = useState('');
     const [recetas, setRecetas] = useState([]);
-    const [posicionCarrusel, setPosicionCarrusel] = useState(0);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -49,14 +48,6 @@ const Inicio = () => {
         navigate('/recetas');
     };
 
-    const moverCarrusel = (direccion) => {
-        const cantidadRecetas = recetasDestacadas.length || 1;
-        if (direccion === 'derecha') {
-            setPosicionCarrusel((prev) => (prev + 1) % cantidadRecetas);
-        } else if (direccion === 'izquierda') {
-            setPosicionCarrusel((prev) => (prev - 1 + cantidadRecetas) % cantidadRecetas);
-        }
-    };
     return (
         <div className="pagina-inicio">
             <section id="hero">
@@ -88,23 +79,22 @@ const Inicio = () => {
                         <Button
                             type="button"
                             id="boton-flecha-izquierda"
-                            ariaLabel="Receta anterior"
-                            onClick={() => moverCarrusel('izquierda')}
+                            aria-label="Receta anterior"
+                            onClick={() => {}}
                             className="boton-flecha"
                         >
                             ‹
                         </Button>
 
                         <div id="ventana-destacadas">
-                            <div 
-                                id="lista-destacadas" 
-                                style={{ transform: `translateX(-${posicionCarrusel * 100}%)` }}
-                            >
+                            <div id="lista-destacadas">
                                 {recetasDestacadas.map((receta) => (
                                     <Card 
                                         key={receta.id} 
-                                        receta={receta} 
-                                        onClick={() => navigate(`/calcular_receta?receta=${receta.id}`)} 
+                                        id={receta.slug} 
+                                        imagen={receta.imagen}
+                                        nombre={receta.nombre}
+                                        texto={receta.descripcion}
                                     />
                                 ))}
                             </div>
@@ -113,8 +103,8 @@ const Inicio = () => {
                         <Button
                             type="button"
                             id="boton-flecha-derecha"
-                            ariaLabel="Receta siguiente"
-                            onClick={() => moverCarrusel('derecha')}
+                            aria-label="Receta siguiente"
+                            onClick={() => {}}
                             className="boton-flecha"
                         >
                             ›
@@ -124,7 +114,6 @@ const Inicio = () => {
             </div>
         </div>
     );
-
 };
 
 export default Inicio;

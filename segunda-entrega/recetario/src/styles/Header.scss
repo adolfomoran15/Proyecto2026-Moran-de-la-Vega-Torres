@@ -1,17 +1,19 @@
 header {
     background-color: var(--color-header);
     width: 100%;
+    box-sizing: border-box;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
-
+    
     h1 {
         margin: 0;
     }
 }
 
-#nav-principal {
+header #nav-principal {
     display: flex;
     align-items: center;
     gap: 1.5rem;
@@ -48,6 +50,7 @@ header {
 
             &::after {
                 transform: scaleX(1);
+                transform-origin: bottom;
             }
         }
     }
@@ -57,21 +60,22 @@ header {
 
         &::after {
             transform: scaleX(1);
+            transform-origin: bottom;
         }
     }
 }
 
-#logo-sitio {
+header #logo-sitio {
     width: 100px;
     height: 100px;
     object-fit: contain;
     display: block;
     margin: 0;
     transform: rotate(-4deg);
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 
     &:hover {
-        transform: rotate(0deg) scale(1.05);
+    transform: rotate(0deg) scale(1.05);
     }
 }
 
