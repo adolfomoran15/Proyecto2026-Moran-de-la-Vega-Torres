@@ -12,7 +12,6 @@ const Inicio = () => {
     const [busqueda, setBusqueda] = useState('');
     const [errorBusqueda, setErrorBusqueda] = useState('');
     const [recetas, setRecetas] = useState([]);
-    const [posicionCarrusel, setPosicionCarrusel] = useState(0);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -49,14 +48,6 @@ const Inicio = () => {
         navigate('/recetas');
     };
 
-    const moverCarrusel = (direccion) => {
-        const cantidadRecetas = recetasDestacadas.length || 1;
-        if (direccion === 'derecha') {
-            setPosicionCarrusel((prev) => (prev + 1) % cantidadRecetas);
-        } else if (direccion === 'izquierda') {
-            setPosicionCarrusel((prev) => (prev - 1 + cantidadRecetas) % cantidadRecetas);
-        }
-    };
     return (
         <main id="contenido-principal" className="pagina-inicio">
             <section id="hero">
@@ -91,17 +82,14 @@ const Inicio = () => {
                             type="button"
                             id="boton-flecha-izquierda"
                             aria-label="Receta anterior"
-                            onClick={() => moverCarrusel('izquierda')}
+                            onClick={() => {}}
                             className="boton-flecha"
                         >
                             ‹
                         </Button>
 
                         <div id="ventana-destacadas">
-                            <div 
-                                id="lista-destacadas" 
-                                style={{ transform: `translateX(-${posicionCarrusel * 100}%)` }}
-                            >
+                            <div id="lista-destacadas">
                                 {recetasDestacadas.map((receta) => (
                                     <Card 
                                         key={receta.id} 
@@ -116,7 +104,7 @@ const Inicio = () => {
                             type="button"
                             id="boton-flecha-derecha"
                             aria-label="Receta siguiente"
-                            onClick={() => moverCarrusel('derecha')}
+                            onClick={() => {}}
                             className="boton-flecha"
                         >
                             ›
@@ -126,7 +114,6 @@ const Inicio = () => {
             </div>
         </main>
     );
-
 };
 
 export default Inicio;
