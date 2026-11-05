@@ -1,36 +1,32 @@
-const API_URL = 'http://localhost:3000';
+const BASE_URL = import.meta.env.VITE_BASE_URL;
 
-/**
- * Obtiene el listado completo de recetas desde el servidor.
- * @returns {Promise<Array>} Array de recetas.
- */
-export const getRecetas = async () => {
-    try {
-        const response = await fetch(`${API_URL}/recetas`);
-        if (!response.ok) {
-            throw new Error('No se pudo obtener el listado de recetas.');
-        }
-        return await response.json();
-    } catch (error) {
-        console.error('Error en getRecetas:', error);
-        throw error;
-    }
-};
+// Obtener listado de RECETAS
+export async function getRecetas() {
+    const res = await fetch(`${BASE_URL}recetas`);
 
-/**
- * Obtiene una receta específica por su id.
- * @param {string|number} id - ID de la receta.
- * @returns {Promise<Object>} Objeto de la receta encontrada.
- */
-export const getRecetaById = async (id) => {
-    try {
-        const response = await fetch(`${API_URL}/recetas/${id}`);
-        if (!response.ok) {
-            throw new Error(`No se encontró la receta con id: ${id}`);
-        }
-        return await response.json();
-    } catch (error) {
-        console.error(`Error en getRecetaById (${id}):`, error);
-        throw error;
-    }
-};
+    if (!res.ok) throw new Error("Error al obtener el listado de recetas");
+
+    return res.json();
+}
+
+// Obtener una RECETA por id
+export async function getReceta(id) {
+    const res = await fetch(`${BASE_URL}recetas/${id}`);
+
+    if (!res.ok) throw new Error("Error al obtener la receta");
+
+    return res.json();
+}
+
+// Enviar MENSAJE del formulario de contacto
+export async function postMensaje(mensaje) {
+    const res = await fetch(`${BASE_URL}mensajes`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(mensaje),
+    });
+
+    if (!res.ok) throw new Error("Error al enviar el mensaje");
+
+    return res.json();
+}

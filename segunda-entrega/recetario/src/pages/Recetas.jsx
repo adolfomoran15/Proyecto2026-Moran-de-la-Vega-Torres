@@ -119,7 +119,7 @@ const Recetas = () => {
     };
 
     return (
-        <main id="contenido-principal" className="pagina-recetas">
+        <div className="pagina-recetas">
             <aside id="contenedor-filtros">
                 <section id="filtros">
                     <h2>Filtrar recetas</h2>
@@ -186,10 +186,10 @@ const Recetas = () => {
                 </section>
 
                 <div id="botones-filtros">
-                    <Button type="button" id="boton-aplicar-filtros" onClick={aplicarFiltros}>
+                    <Button type="button" className="boton-aplicar-filtros" onClick={aplicarFiltros}>
                         Aplicar filtros
                     </Button>
-                    <Button type="button" id="boton-limpiar-filtros" onClick={limpiarFiltros}>
+                    <Button type="button" className="boton-limpiar-filtros" onClick={limpiarFiltros}>
                         Limpiar filtros
                     </Button>
                 </div>
@@ -209,7 +209,7 @@ const Recetas = () => {
                     </div>
                 </section>
             </div>
-        </main>
+        </div>
     );
 };
 
