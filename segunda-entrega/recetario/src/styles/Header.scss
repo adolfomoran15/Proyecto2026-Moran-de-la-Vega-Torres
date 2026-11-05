@@ -1,0 +1,89 @@
+header {
+    background-color: var(--color-header);
+    width: 100%;
+    box-sizing: border-box;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    
+    h1 {
+        margin: 0;
+    }
+}
+
+header #nav-principal {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+
+    a {
+        text-decoration: none;
+        font-size: 1rem;
+        position: relative;
+        padding-bottom: 0.4rem;
+        transition: color 0.3s ease;
+
+        &:link,
+        &:visited {
+            color: var(--color-blanco);
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 0.05rem;
+            background-color: var(--color-blanco);
+            transform: scaleX(0);
+            transform-origin: bottom;
+            transition: transform 0.3s ease;
+        }
+
+        &:hover,
+        &:focus,
+        &:active {
+            color: var(--color-secundario);
+
+            &::after {
+                transform: scaleX(1);
+                transform-origin: bottom;
+            }
+        }
+    }
+
+    &:not(:has(a:hover, a:focus, a:active)) a.link-activo {
+        color: var(--color-secundario);
+
+        &::after {
+            transform: scaleX(1);
+            transform-origin: bottom;
+        }
+    }
+}
+
+header #logo-sitio {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    display: block;
+    margin: 0;
+    transform: rotate(-4deg);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+    transform: rotate(0deg) scale(1.05);
+    }
+}
+
+#titulo-sitio {
+    font-family: var(--fuente-decorativa);
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    font-style: oblique;
+    color: var(--color-blanco);
+}
