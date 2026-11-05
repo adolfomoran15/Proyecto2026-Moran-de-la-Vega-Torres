@@ -6,7 +6,7 @@ import Card from '@components/Card';
 import { getRecetas } from '@api/recetasApi';
 import '@styles/Inicio.scss';
 
-const soloLetras = /^[A-Za-zÀ-ÿñÑ\s]+$([ñÑ\s]*[A-Za-zÀ-ÿñÑ\s]+)*$/;
+const soloLetras = /^[A-Za-zÀ-ÿñÑ\s]+$/;
 
 const Inicio = () => {
     const [busqueda, setBusqueda] = useState('');
@@ -49,7 +49,7 @@ const Inicio = () => {
     };
 
     return (
-        <main id="contenido-principal" className="pagina-inicio">
+        <div className="pagina-inicio">
             <section id="hero">
                 <div id="texto-hero">
                     <h2>¿Qué cocinamos hoy?</h2>
@@ -59,15 +59,13 @@ const Inicio = () => {
                         <Input
                             id="input-buscar-recetas"
                             label="Buscar recetas"
-                            type="text"
-                            name="buscar-recetas"
                             value={busqueda}
                             onChange={handleBusquedaChange}
                             error={errorBusqueda}
                             placeholder="Ej: milanesa, sopa de calabaza..."
                             maxLength={40}
                         />
-                        <Button type="submit" id="boton-buscar" className="boton-buscar">
+                        <Button type="submit" className="boton-buscar">
                             Buscar
                         </Button>
                     </form>
@@ -114,7 +112,7 @@ const Inicio = () => {
                     </div>
                 </section>
             </div>
-        </main>
+        </div>
     );
 };
 
