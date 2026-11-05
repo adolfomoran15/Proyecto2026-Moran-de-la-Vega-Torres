@@ -11,13 +11,14 @@ const Receta = () => {
     const navigate = useNavigate();
 
     const [recetaActual, setRecetaActual] = useState(null);
-    const [inputPorciones, setInputPorciones] = useState(1);       // Lo que se escribe en el input
-    const [porcionesCalculadas, setPorcionesCalculadas] = useState(1); // Lo que realmente usa la receta tras calcular
+    const [inputPorciones, setInputPorciones] = useState(1);
+    const [porcionesCalculadas, setPorcionesCalculadas] = useState(1);
     const [otrasRecetas, setOtrasRecetas] = useState([]);
     const [cargando, setCargando] = useState(true);
 
     useEffect(() => {
         const cargarDatos = async () => {
+            // Buscar la receta en la base de datos
             try {
                 const data = await getRecetas();
 
@@ -52,7 +53,7 @@ const Receta = () => {
         e.preventDefault();
         const valor = parseFloat(inputPorciones);
 
-        // Validamos que no sea menor a 1, ni NaN, ni inválido
+        // Validar que la cantidad sea un numero en el rango 1 a 60
         if (isNaN(valor) || valor < 1) {
             alert('La cantidad mínima de porciones es 1.');
             setInputPorciones(1);
@@ -66,7 +67,6 @@ const Receta = () => {
             return;
         }
 
-        // Si pasa las validaciones, recién acá actualizamos el valor que calcula los ingredientes
         setPorcionesCalculadas(valor);
     };
 
@@ -160,7 +160,6 @@ const Receta = () => {
                         <h5>Ingredientes</h5>
                         <ul id="ingredientes">
                             {recetaActual.ingredientes.map((ingr, num) => {
-                                // Usamos porcionesCalculadas para que solo cambie al apretar el botón
                                 let total = Math.round(porcionesCalculadas * parseFloat(ingr.cantidad) * 100) / 100;
                                 if (isNaN(total)) {
                                     total = "a gusto";
