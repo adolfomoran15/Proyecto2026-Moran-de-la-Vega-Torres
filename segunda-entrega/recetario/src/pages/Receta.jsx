@@ -15,7 +15,7 @@ const Receta = () => {
     const [porciones, setPorciones] = useState(1);
     const [otrasRecetas, setOtrasRecetas] = useState([]);
     const [cargando, setCargando] = useState(true);
-
+  
     useEffect(() => {
         const cargarDatos = async () => {
             try {
