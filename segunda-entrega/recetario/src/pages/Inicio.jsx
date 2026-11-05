@@ -93,8 +93,10 @@ const Inicio = () => {
                                 {recetasDestacadas.map((receta) => (
                                     <Card 
                                         key={receta.id} 
-                                        receta={receta} 
-                                        onClick={() => navigate(`/calcular_receta?receta=${receta.id}`)} 
+                                        id={receta.slug} 
+                                        imagen={receta.imagen}
+                                        nombre={receta.nombre}
+                                        texto={receta.descripcion}
                                     />
                                 ))}
                             </div>
