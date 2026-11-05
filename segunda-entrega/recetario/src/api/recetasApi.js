@@ -34,3 +34,27 @@ export const getRecetaById = async (id) => {
         throw error;
     }
 };
+
+/**
+ * Envía un mensaje de contacto al servidor.
+ * @param {Object} mensaje - Objeto con los datos del mensaje.
+ * @returns {Promise<Object>} Respuesta del servidor.
+ */
+export const postMensaje = async (mensaje) => {
+    try {
+        const response = await fetch(`${API_URL}/mensajes`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(mensaje),
+        });
+        if (!response.ok) {
+            throw new Error('No se pudo enviar el mensaje.');
+        }
+        return await response.json();
+    } catch (error) {
+        console.error('Error en postMensaje:', error);
+        throw error;
+    }
+};
