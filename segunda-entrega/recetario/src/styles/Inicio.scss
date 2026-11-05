@@ -3,9 +3,7 @@
     width: 100%;
     height: 420px;
     margin-top: 2rem;
-    background-image: url("/imagenes/imagen_main_index.jpg"); 
-    background-size: cover;
-    background-position: center;
+    overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -15,7 +13,16 @@
         position: absolute;
         inset: 0;
         background-color: rgba(0, 0, 0, 0.511);
+        z-index: 1;
     }
+}
+
+.fondo-hero {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 #texto-hero {
