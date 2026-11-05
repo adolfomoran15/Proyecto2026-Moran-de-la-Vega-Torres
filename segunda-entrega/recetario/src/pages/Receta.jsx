@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useSearchParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import Button from '@components/Button';
 import Input from '@components/Input';
 import Card from '@components/Card';
@@ -7,21 +7,22 @@ import { getRecetas } from '@api/recetasApi';
 import '@styles/Receta.scss';
 
 const Receta = () => {
-    const [searchParams] = useSearchParams();
+    const { id } = useParams();
     const navigate = useNavigate();
-    const slugReceta = searchParams.get('receta');
 
     const [recetaActual, setRecetaActual] = useState(null);
-    const [porciones, setPorciones] = useState(1);
+    const [inputPorciones, setInputPorciones] = useState(1);
+    const [porcionesCalculadas, setPorcionesCalculadas] = useState(1);
     const [otrasRecetas, setOtrasRecetas] = useState([]);
     const [cargando, setCargando] = useState(true);
-  
+
     useEffect(() => {
         const cargarDatos = async () => {
+            // Buscar la receta en la base de datos
             try {
                 const data = await getRecetas();
 
-                const encontrada = data.find(r => r.slug === slugReceta || r.id.toString() === slugReceta);
+                const encontrada = data.find(r => r.slug === id || r.id.toString() === id);
                 setRecetaActual(encontrada || null);
 
                 if (encontrada) {
@@ -42,26 +43,31 @@ const Receta = () => {
             }
         };
         cargarDatos();
-    }, [slugReceta]);
+    }, [id]);
 
     const handlePorcionesChange = (e) => {
-        setPorciones(e.target.value);
+        setInputPorciones(e.target.value);
     };
 
     const handleCalcularPorciones = (e) => {
         e.preventDefault();
-        const valor = parseFloat(porciones);
+        const valor = parseFloat(inputPorciones);
 
-        if (isNaN(valor) || valor <= 0) {
-            alert('Ingresá una cantidad de porciones válida (un número mayor a cero).');
-            setPorciones(1);
+        // Validar que la cantidad sea un numero en el rango 1 a 60
+        if (isNaN(valor) || valor < 1) {
+            alert('La cantidad mínima de porciones es 1.');
+            setInputPorciones(1);
+            setPorcionesCalculadas(1);
             return;
         }
         if (valor > 60) {
             alert('La cantidad máxima de porciones permitida es 60.');
-            setPorciones(60);
+            setInputPorciones(60);
+            setPorcionesCalculadas(60);
             return;
         }
+
+        setPorcionesCalculadas(valor);
     };
 
     if (cargando) {
@@ -72,7 +78,7 @@ const Receta = () => {
         return (
             <main id="contenido-principal" className="pagina-calcular">
                 <div id="img-receta" className="imagen-receta">
-                    <img src="imagenes/pregunta.png" alt="signo de pregunta" id="imagen-pregunta" />
+                    <img src="/imagenes/pregunta.png" alt="signo de pregunta" id="imagen-pregunta" />
                 </div>
                 <div id="texto-receta">
                     <span id="categoria-receta" className="etiqueta-plato">Sin categoría</span>
@@ -106,7 +112,7 @@ const Receta = () => {
 
             <section id="informacion-recetas">
                 <div id="img-receta" className="imagen-receta">
-                    <img src={`imagenes/${recetaActual.imagen}`} alt={recetaActual.nombre} id={`imagen-${recetaActual.id}`} />
+                    <img src={`/imagenes/${recetaActual.imagen}`} alt={recetaActual.nombre} id={`imagen-${recetaActual.id}`} />
                 </div>
 
                 <div id="texto-receta">
@@ -123,7 +129,7 @@ const Receta = () => {
                         </div>
                         <div className="dato">
                             <h6>CANTIDAD PORCIONES</h6>
-                            <p id="cantidad">{porciones}</p>
+                            <p id="cantidad">{porcionesCalculadas}</p>
                         </div>
                     </div>
                 </div>
@@ -138,13 +144,13 @@ const Receta = () => {
                                 type="number"
                                 id="input-porciones"
                                 label="Cantidad de porciones"
-                                value={porciones}
+                                value={inputPorciones}
                                 onChange={handlePorcionesChange}
                                 min="1"
                                 max="60"
                                 placeholder="Ingresá las porciones"
                             />
-                            <Button type="submit" aria-label="Calcular ingredientes para el número de porciones elegido">
+                            <Button type="submit" ariaLabel="Calcular ingredientes para el número de porciones elegido">
                                 Calcular
                             </Button>
                         </form>
@@ -154,7 +160,7 @@ const Receta = () => {
                         <h5>Ingredientes</h5>
                         <ul id="ingredientes">
                             {recetaActual.ingredientes.map((ingr, num) => {
-                                let total = Math.round((porciones || 1) * parseFloat(ingr.cantidad) * 100) / 100;
+                                let total = Math.round(porcionesCalculadas * parseFloat(ingr.cantidad) * 100) / 100;
                                 if (isNaN(total)) {
                                     total = "a gusto";
                                 }
@@ -198,8 +204,10 @@ const Receta = () => {
                     {otrasRecetas.map((receta) => (
                         <Card
                             key={receta.id}
-                            receta={receta}
-                            onClick={() => navigate(`/calcular_receta?receta=${receta.slug}`)}
+                            id={receta.slug}
+                            imagen={receta.imagen}
+                            nombre={receta.nombre}
+                            texto={receta.descripcion}
                         />
                     ))}
                 </div>
