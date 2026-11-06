@@ -12,6 +12,7 @@ const Receta = () => {
 
   const [recetaActual, setRecetaActual] = useState(null);
   const [porciones, setPorciones] = useState(1);
+  const [porcionesCalculadas, setPorcionesCalculadas] = useState(1);
   const [otrasRecetas, setOtrasRecetas] = useState([]);
   const [cargando, setCargando] = useState(true);
   const [errorPorciones, setErrorPorciones] = useState("");
@@ -20,6 +21,9 @@ const Receta = () => {
     const cargarDatos = async () => {
       try {
         const data = await getRecetas();
+        setPorciones(1);
+        setPorcionesCalculadas(1);
+        setErrorPorciones("");
 
         const encontrada = data.find((r) => r.id.toString() === id);
         setRecetaActual(encontrada || null);
@@ -58,7 +62,8 @@ const Receta = () => {
 
   const handleCalcularPorciones = (e) => {
     e.preventDefault();
-    if (errorPorciones) setPorciones(1);
+    if (errorPorciones) return;
+    setPorcionesCalculadas(Number(porciones));
   };
 
   if (cargando) {
@@ -173,7 +178,7 @@ const Receta = () => {
               {recetaActual.ingredientes.map((ingr, num) => {
                 let total =
                   Math.round(
-                    (porciones || 1) * parseFloat(ingr.cantidad) * 100,
+                    porcionesCalculadas * parseFloat(ingr.cantidad) * 100,
                   ) / 100;
                 if (isNaN(total)) {
                   total = "a gusto";
