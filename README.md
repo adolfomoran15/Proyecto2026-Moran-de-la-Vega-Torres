@@ -88,17 +88,25 @@ Proyecto2026-Moran-de-la-Vega-Torres/
 ├── segunda-entrega/
 │   └── recetario/
 │       ├── public/
+│       │   └── imagenes/          # favicon e imágenes públicas
 │       ├── src/
 │       │   ├── api/
-│       │   ├── assets/
-│       │   ├── components/
-│       │   ├── pages/
-│       │   ├── styles/
+│       │   │   └── recetasApi.js  # funciones fetch al servidor mock
+│       │   ├── assets/            # logo_header.png
+│       │   ├── components/        # Button, Card, Footer, Header, Input, Layout
+│       │   ├── data/
+│       │   │   └── db.json        # base de datos simulada (json-server)
+│       │   ├── pages/             # Contacto, Inicio, Receta, Recetas
+│       │   ├── styles/            # archivos .scss (incluye _variables.scss)
+│       │   ├── utils/             # funciones auxiliares (validaciones)
 │       │   ├── App.jsx
 │       │   └── main.jsx
-│       ├── db.json
+│       ├── .env
+│       ├── .gitignore
+│       ├── eslint.config.js
 │       ├── index.html
 │       ├── package.json
+│       ├── package-lock.json
 │       └── vite.config.js
 └── README.md
 ```
