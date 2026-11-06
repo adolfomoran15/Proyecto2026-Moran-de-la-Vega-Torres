@@ -72,8 +72,8 @@ const Contacto = () => {
   };
 
   return (
-    <div className="pagina-contacto">
-      <div className="contenedor-texto">
+    <div>
+      <div>
         <h3>Contacto</h3>
         <p>
           ¿Tenés alguna sugerencia, consulta o simplemente querés contar cómo
@@ -121,7 +121,7 @@ const Contacto = () => {
         <p>¡También podés encontrarnos en nuestras redes sociales!</p>
         <div className="redes-sociales-items">
           {redesSociales.map((red) => (
-            <article key={red.nombre} className={red.nombre}>
+            <article key={red.nombre}>
               <img src={red.icono} alt={red.alt} className="icono-red-social" />
               <div className="contenedor-texto">
                 <p>@recetario.ses</p>

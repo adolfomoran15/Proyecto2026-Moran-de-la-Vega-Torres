@@ -103,21 +103,7 @@
 
 .boton-limpiar-filtros {
     width: 100%;
-    padding: 0.7rem 1rem;
-    border: none;
-    border-radius: 8px;
     background-color: variables.$color-error;
-    color: variables.$color-blanco;
-    font-family: variables.$fuente-texto;
-    font-size: 0.9rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-
-    &:hover,
-    &:focus {
-        transform: translateY(-2px);
-    }
 }
 
 #contenedor-catalogo {
