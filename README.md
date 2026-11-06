@@ -53,6 +53,8 @@ El sitio tiene cuatro páginas, a las que se llega desde el menú de arriba o de
 - JSON Server (mock de servicios)
 - ESLint
 - Git y GitHub
+- Concurrently (para levantar la app y el mock juntos)
+
 
 ### Fuentes
 
@@ -122,7 +124,7 @@ Proyecto2026-Moran-de-la-Vega-Torres/
 3. Instalar las dependencias:
    `npm install`
 4. Crear un archivo `.env` dentro de `recetario` con:
-   `VITE_BASE_URL = "http://localhost:4000/"`
+   `VITE_BASE_URL="http://localhost:4000/"`
 5. Levantar la aplicación y el mock de servicios:
    `npm start`
    - Solo la aplicación: `npm run dev` → http://localhost:5173
