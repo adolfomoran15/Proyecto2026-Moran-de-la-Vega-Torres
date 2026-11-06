@@ -3,7 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import Button from "@components/Button";
 import Input from "@components/Input";
 import Card from "@components/Card";
-import { getRecetas } from "@api/recetasApi";
+import { getRecetas, getReceta } from "@api/recetasApi";
 import "@styles/Receta.scss";
 
 const Receta = () => {
@@ -20,24 +20,24 @@ const Receta = () => {
   useEffect(() => {
     const cargarDatos = async () => {
       try {
-        const data = await getRecetas();
+        setCargando(true);
+        setRecetaActual(null);
         setPorciones(1);
         setPorcionesCalculadas(1);
         setErrorPorciones("");
 
-        const encontrada = data.find((r) => r.id.toString() === id);
-        setRecetaActual(encontrada || null);
+        const encontrada = await getReceta(id);
+        setRecetaActual(encontrada);
 
-        if (encontrada) {
-          const otras = data.filter((r) => r.id !== encontrada.id);
-          const indicesUnicos = new Set();
+        const data = await getRecetas();
+        const otras = data.filter((r) => r.id !== encontrada.id);
+        const indicesUnicos = new Set();
 
-          while (indicesUnicos.size < 3 && indicesUnicos.size < otras.length) {
-            const randomIndex = Math.floor(Math.random() * otras.length);
-            indicesUnicos.add(randomIndex);
-          }
-          setOtrasRecetas(Array.from(indicesUnicos).map((i) => otras[i]));
+        while (indicesUnicos.size < 3 && indicesUnicos.size < otras.length) {
+          const randomIndex = Math.floor(Math.random() * otras.length);
+          indicesUnicos.add(randomIndex);
         }
+        setOtrasRecetas(Array.from(indicesUnicos).map((i) => otras[i]));
 
         setCargando(false);
       } catch (error) {
@@ -62,14 +62,16 @@ const Receta = () => {
 
   const handleCalcularPorciones = (e) => {
     e.preventDefault();
-    if (errorPorciones) return;
+    if (errorPorciones) {
+      alert(errorPorciones);
+      return;
+    }
     setPorcionesCalculadas(Number(porciones));
   };
 
   if (cargando) {
     return <p className="cargando">Cargando receta...</p>;
   }
-
   if (!recetaActual) {
     return (
       <div className="pagina-calcular">
@@ -106,7 +108,7 @@ const Receta = () => {
     <div className="pagina-calcular">
       <Button
         type="button"
-        className="boton-volver-recetas"
+        className="boton-principal boton-volver-recetas"
         onClick={() => navigate("/recetas")}
       >
         ← Volver a recetas
@@ -158,15 +160,9 @@ const Receta = () => {
                 value={porciones}
                 onChange={handlePorcionesChange}
                 error={errorPorciones}
-                min="1"
-                max="60"
                 placeholder="Ingresá las porciones"
               />
-              <Button
-                type="submit"
-                className="boton-principal boton-calcular"
-                ariaLabel="Calcular ingredientes para el número de porciones elegido"
-              >
+              <Button type="submit" className="boton-principal boton-calcular">
                 Calcular
               </Button>
             </form>
@@ -185,7 +181,7 @@ const Receta = () => {
                 }
 
                 return (
-                  <li key={num} aria-label={`ingrediente ${ingr.nombre}`}>
+                  <li key={num}>
                     <input type="checkbox" id={`ingrediente-${num}`} />
                     <label htmlFor={`ingrediente-${num}`}>
                       <span className="cantidad-ingrediente">
@@ -204,9 +200,7 @@ const Receta = () => {
           <h5>Preparación</h5>
           <ol id="pasos" className="lista-pasos">
             {recetaActual.pasos.map((paso, num) => (
-              <li key={num} aria-label={`paso ${num + 1} ${paso}`}>
-                {paso}
-              </li>
+              <li key={num}>{paso}</li>
             ))}
           </ol>
         </div>
