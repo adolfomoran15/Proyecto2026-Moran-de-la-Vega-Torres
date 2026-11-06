@@ -74,7 +74,7 @@ const Receta = () => {
   }
   if (!recetaActual) {
     return (
-      <div>
+      <section id="informacion-recetas">
         <div className="imagen-receta">
           <img src="/imagenes/pregunta.png" alt="signo de pregunta" />
         </div>
@@ -86,15 +86,15 @@ const Receta = () => {
           <div className="datos-adicionales">
             <div className="dato">
               <h6>TIEMPO</h6>
-              <p id="tiempo">No hay minutos</p>
+              <p>No hay minutos</p>
             </div>
             <div className="dato">
               <h6>CANTIDAD PORCIONES</h6>
-              <p id="cantidad">1</p>
+              <p>1</p>
             </div>
           </div>
         </div>
-      </div>
+      </section>
     );
   }
 
@@ -127,11 +127,11 @@ const Receta = () => {
           <div className="datos-adicionales">
             <div className="dato">
               <h6>TIEMPO</h6>
-              <p id="tiempo">{recetaActual.minutos} minutos</p>
+              <p>{recetaActual.minutos} minutos</p>
             </div>
             <div className="dato">
               <h6>CANTIDAD PORCIONES</h6>
-              <p id="cantidad">{porcionesCalculadas}</p>
+              <p>{porcionesCalculadas}</p>
             </div>
           </div>
         </div>
@@ -190,7 +190,7 @@ const Receta = () => {
 
         <div className="columna-derecha">
           <h5>Preparación</h5>
-          <ol id="pasos" className="lista-pasos">
+          <ol className="lista-pasos">
             {recetaActual.pasos.map((paso, num) => (
               <li key={num}>{paso}</li>
             ))}
@@ -209,12 +209,11 @@ const Receta = () => {
               e.preventDefault();
               navigate("/recetas");
             }}
-            className="ver-todo"
           >
             Ver todo &rarr;
           </a>
         </div>
-        <div id="recetas-cortas" className="grid-recetas">
+        <div className="grid-recetas">
           {otrasRecetas.map((receta) => (
             <Card
               key={receta.id}
