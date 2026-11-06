@@ -63,7 +63,7 @@ const Inicio = () => {
     }
   };
   return (
-    <div className="pagina-inicio">
+    <div>
       <section id="hero">
         <img
           className="fondo-hero"
