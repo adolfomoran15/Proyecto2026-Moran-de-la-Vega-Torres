@@ -137,7 +137,7 @@ const Receta = () => {
             </div>
             <div className="dato">
               <h6>CANTIDAD PORCIONES</h6>
-              <p id="cantidad">{porciones}</p>
+              <p id="cantidad">{porcionesCalculadas}</p>
             </div>
           </div>
         </div>
