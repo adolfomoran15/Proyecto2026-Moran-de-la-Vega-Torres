@@ -1,3 +1,5 @@
+@use '@styles/variables';
+
 .pagina-recetas {
     display: flex;
     align-items: flex-start;
@@ -12,8 +14,8 @@
 }
 
 #filtros {
-    background-color: var(--color-blanco);
-    border: 1px solid var(--color-borde);
+    background-color: variables.$color-blanco;
+    border: 1px solid variables.$color-borde;
     border-radius: 15px;
     padding: 3px;
     box-shadow: 0 4px 15px rgba(0, 28, 138, 0.37);
@@ -22,7 +24,7 @@
         margin: 0 0 1.5rem;
         font-size: 2rem;
         font-weight: 600;
-        color: var(--color-texto);
+        color: variables.$color-texto;
         text-align: center;
     }
 
@@ -31,7 +33,7 @@
         margin: 0 0 0.8rem;
         font-size: 1rem;
         font-weight: 600;
-        color: var(--color-principal);
+        color: variables.$color-principal;
         display: block;
     }
 
@@ -43,25 +45,25 @@
     }
 
     input[type="checkbox"] {
-        accent-color: var(--color-header);
+        accent-color: variables.$color-header;
     }
 
     select {
         display: block;
         width: 90%;
         padding: 0.5rem;
-        border: 1px solid var(--color-borde);
+        border: 1px solid variables.$color-borde;
         border-radius: 7px;
-        background-color: var(--color-fondo);
-        color: var(--color-texto);
-        font-family: var(--fuente-texto);
+        background-color: variables.$color-fondo;
+        color: variables.$color-texto;
+        font-family: variables.$fuente-texto;
         font-size: 0.9rem;
         cursor: pointer;
         margin: 0 auto;
 
         &:focus {
             outline: none;
-            border-color: var(--color-secundario);
+            border-color: variables.$color-secundario;
         }
     }
 }
@@ -104,9 +106,9 @@
     padding: 0.7rem 1rem;
     border: none;
     border-radius: 8px;
-    background-color: rgba(194, 0, 0, 0.922);
-    color: var(--color-blanco);
-    font-family: var(--fuente-texto);
+    background-color: variables.$color-error;
+    color: variables.$color-blanco;
+    font-family: variables.$fuente-texto;
     font-size: 0.9rem;
     font-weight: 600;
     cursor: pointer;
@@ -133,6 +135,6 @@
 }
 
 .mensaje-busqueda {
-  color: var(--color-secundario);
+  color: variables.$color-secundario;
   margin-bottom: 1rem;
 }
