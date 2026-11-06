@@ -196,7 +196,7 @@ const Recetas = () => {
         <div id="botones-filtros">
           <Button
             type="button"
-            className="boton-aplicar-filtros"
+            className="boton-principal boton-aplicar-filtros"
             onClick={aplicarFiltros}
           >
             Aplicar filtros

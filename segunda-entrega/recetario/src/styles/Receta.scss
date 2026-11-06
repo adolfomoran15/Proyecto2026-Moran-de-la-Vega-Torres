@@ -172,6 +172,9 @@
             font-size: 1rem;
             text-align: center;
         }
+        .boton-calcular {
+        align-self: center;
+        }
     }
 }
  
@@ -319,4 +322,11 @@
             }
         }
     }
+    .separador {
+    width: 98%;
+    height: 1px;
+    background-color: var(--color-borde);
+    border: 0;
+    margin: 0.5rem auto;
+}
 }

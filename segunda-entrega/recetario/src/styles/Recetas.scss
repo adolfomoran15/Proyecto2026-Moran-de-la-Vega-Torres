@@ -98,18 +98,25 @@
     margin-top: 1rem;
 }
 
-.boton-aplicar-filtros,
+.boton-aplicar-filtros {
+    width: 100%;
+}
+
 .boton-limpiar-filtros {
     width: 100%;
     padding: 0.7rem 1rem;
     border: none;
-    border-radius: 7px;
+    border-radius: 8px;
+    background-color: rgba(194, 0, 0, 0.922);
+    color: var(--color-blanco);
     font-family: var(--fuente-texto);
     font-size: 0.9rem;
     font-weight: 600;
     cursor: pointer;
+    transition: transform 0.3s ease;
 
-    &:hover {
+    &:hover,
+    &:focus {
         transform: translateY(-2px);
     }
 }

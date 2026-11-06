@@ -30,3 +30,22 @@ body {
     border: 0;
     margin: 0.5rem auto;
 }
+
+.boton-principal {
+    padding: 0.7rem 1.2rem;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--color-header);
+    color: var(--color-blanco);
+    font-family: var(--fuente-texto);
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+
+    &:hover,
+    &:focus {
+        background-color: var(--color-principal);
+        transform: translateY(-2px);
+    }
+}

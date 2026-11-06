@@ -159,6 +159,7 @@ const Receta = () => {
               />
               <Button
                 type="submit"
+                className="boton-principal boton-calcular"
                 ariaLabel="Calcular ingredientes para el número de porciones elegido"
               >
                 Calcular
