@@ -162,7 +162,7 @@ const Receta = () => {
 
           <div className="lista-ingredientes">
             <h5>Ingredientes</h5>
-            <ul id="ingredientes">
+            <ul key={porcionesCalculadas}>
               {recetaActual.ingredientes.map((ingr, num) => {
                 let total =
                   Math.round(
