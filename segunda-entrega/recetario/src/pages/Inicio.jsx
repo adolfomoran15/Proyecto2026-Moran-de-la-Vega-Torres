@@ -4,9 +4,8 @@ import Input from "@components/Input";
 import Button from "@components/Button";
 import Card from "@components/Card";
 import { getRecetas } from "@api/recetasApi";
+import { esTextoValido } from "@utils/validaciones";
 import "@styles/Inicio.scss";
-
-const soloLetras = /^[A-Za-zÀ-ÿñÑ\s]+$/;
 
 const Inicio = () => {
   const [busqueda, setBusqueda] = useState("");
@@ -33,7 +32,7 @@ const Inicio = () => {
     const valor = e.target.value;
     setBusqueda(valor);
     setErrorBusqueda(
-      valor && !soloLetras.test(valor)
+      valor && !esTextoValido(valor)
         ? "Escribí solo letras para buscar una receta."
         : "",
     );
@@ -43,7 +42,7 @@ const Inicio = () => {
     e.preventDefault();
     const searchWord = busqueda.trim();
 
-    if (searchWord === "" || !soloLetras.test(searchWord)) {
+    if (!esTextoValido(searchWord)) {
       alert("Escribí solo letras para buscar una receta.");
       setBusqueda("");
       return;

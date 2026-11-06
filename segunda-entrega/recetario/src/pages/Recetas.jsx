@@ -2,18 +2,9 @@ import { useState, useEffect } from "react";
 import Button from "@components/Button";
 import Card from "@components/Card";
 import { getRecetas } from "@api/recetasApi";
+import { ingredientesIniciales } from "@data/ingredientes";
+import { normalizarTexto } from "@utils/texto";
 import "@styles/Recetas.scss";
-
-const ingredientesIniciales = {
-  papa: false,
-  tomate: false,
-  queso: false,
-  lechuga: false,
-  carne: false,
-  huevo: false,
-  cebolla: false,
-  harina: false,
-};
 
 const Recetas = () => {
   const [recetas, setRecetas] = useState([]);
@@ -40,7 +31,7 @@ const Recetas = () => {
         let listaInicial = data;
         if (searchWord) {
           listaInicial = data.filter((receta) =>
-            receta.nombre.toLowerCase().includes(searchWord.toLowerCase()),
+            normalizarTexto(receta.nombre).includes(normalizarTexto(searchWord)),
           );
           if (listaInicial.length === 0) {
             setMensaje(

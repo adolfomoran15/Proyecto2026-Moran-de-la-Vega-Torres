@@ -2,20 +2,9 @@ import { useState } from "react";
 import Input from "@components/Input";
 import Button from "@components/Button";
 import { postMensaje } from "@api/recetasApi";
+import { redesSociales } from "@data/redesSociales";
+import { esTextoValido, esEmailValido, esMensajeValido } from "@utils/validaciones";
 import "@styles/Contacto.scss";
-
-const soloLetras = /^[A-Za-zÀ-ÿñÑ\s]+$/;
-const formatoEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-const redesSociales = [
-  {
-    nombre: "instagram",
-    alt: "Instagram",
-    icono: "/imagenes/instagram-icon.png",
-  },
-  { nombre: "tiktok", alt: "Tiktok", icono: "/imagenes/tiktok-icon.png" },
-  { nombre: "facebook", alt: "Facebook", icono: "/imagenes/facebook-icon.png" },
-];
 
 const Contacto = () => {
   const [nombre, setNombre] = useState("");
@@ -26,46 +15,63 @@ const Contacto = () => {
   const [errorMensaje, setErrorMensaje] = useState("");
 
   const handleNombre = (e) => {
-    setNombre(e.target.value);
+    const valor = e.target.value;
+    setNombre(valor);
     setErrorNombre(
-      soloLetras.test(e.target.value)
-        ? ""
-        : "Ingresá un nombre válido (solo letras).",
+      esTextoValido(valor) ? "" : "Ingresá un nombre válido (solo letras).",
     );
   };
 
   const handleEmail = (e) => {
-    setEmail(e.target.value);
-    setErrorEmail(
-      formatoEmail.test(e.target.value) ? "" : "Ingresá un email válido.",
-    );
+    const valor = e.target.value;
+    setEmail(valor);
+    setErrorEmail(esEmailValido(valor) ? "" : "Ingresá un email válido.");
   };
 
   const handleMensaje = (e) => {
-    setMensaje(e.target.value);
-    setErrorMensaje(e.target.value.trim() === "" ? "Escribí un mensaje." : "");
+    const valor = e.target.value;
+    setMensaje(valor);
+    setErrorMensaje(esMensajeValido(valor) ? "" : "Escribí un mensaje.");
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (
-      !nombre ||
-      !email ||
-      !mensaje ||
-      errorNombre ||
-      errorEmail ||
-      errorMensaje
-    ) {
-      alert("Completá todos los campos correctamente.");
+    const nombreValido = esTextoValido(nombre);
+    const emailValido = esEmailValido(email);
+    const mensajeValido = esMensajeValido(mensaje);
+
+    if (!nombreValido || !emailValido || !mensajeValido) {
+      alert("Revisá los campos: hay datos incompletos o inválidos.");
+
+      if (!nombreValido) {
+        setNombre("");
+        setErrorNombre("Ingresá un nombre válido (solo letras).");
+      }
+      if (!emailValido) {
+        setEmail("");
+        setErrorEmail("Ingresá un email válido.");
+      }
+      if (!mensajeValido) {
+        setMensaje("");
+        setErrorMensaje("Escribí un mensaje.");
+      }
       return;
     }
+
     try {
-      await postMensaje({ nombre, email, mensaje });
+      await postMensaje({
+        nombre: nombre.trim(),
+        email,
+        mensaje: mensaje.trim(),
+      });
       alert("¡Gracias por escribirnos!");
       setNombre("");
       setEmail("");
       setMensaje("");
-    } catch (error) {
+      setErrorNombre("");
+      setErrorEmail("");
+      setErrorMensaje("");
+      } catch (error) {
       console.error("No se pudo enviar el mensaje:", error);
       alert("No pudimos enviar tu mensaje. Intentá más tarde.");
     }
