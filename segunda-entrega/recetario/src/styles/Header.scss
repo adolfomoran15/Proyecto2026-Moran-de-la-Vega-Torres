@@ -1,5 +1,7 @@
+@use 'Variables';
+
 header {
-    background-color: var(--color-header);
+    background-color: Variables.$color-header;
     width: 100%;
     box-sizing: border-box;
 
@@ -27,7 +29,7 @@ header #nav-principal {
 
         &:link,
         &:visited {
-            color: var(--color-blanco);
+            color: Variables.$color-blanco;
         }
 
         &::after {
@@ -37,7 +39,7 @@ header #nav-principal {
             left: 0;
             width: 100%;
             height: 0.05rem;
-            background-color: var(--color-blanco);
+            background-color: Variables.$color-blanco;
             transform: scaleX(0);
             transform-origin: bottom;
             transition: transform 0.3s ease;
@@ -46,7 +48,7 @@ header #nav-principal {
         &:hover,
         &:focus,
         &:active {
-            color: var(--color-secundario);
+            color: Variables.$color-secundario;
 
             &::after {
                 transform: scaleX(1);
@@ -56,7 +58,7 @@ header #nav-principal {
     }
 
     &:not(:has(a:hover, a:focus, a:active)) a.link-activo {
-        color: var(--color-secundario);
+        color: Variables.$color-secundario;
 
         &::after {
             transform: scaleX(1);
@@ -80,10 +82,10 @@ header #logo-sitio {
 }
 
 #titulo-sitio {
-    font-family: var(--fuente-decorativa);
+    font-family: Variables.$fuente-decorativa;
     font-size: 2rem;
     font-weight: 600;
     letter-spacing: 0.03em;
     font-style: oblique;
-    color: var(--color-blanco);
+    color: Variables.$color-blanco;
 }

@@ -1,6 +1,8 @@
+@use 'Variables';
+
 .tarjeta-receta {
     flex: 0 0 100%;
-    background-color: var(--color-blanco);
+    background-color: Variables.$color-blanco;
     border-radius: 30px;
     overflow: hidden;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.10);
@@ -16,10 +18,10 @@
     }
  
     h3 {
-        font-family: var(--fuente-texto);
+        font-family: Variables.$fuente-texto;
         font-size: 1.6rem;
         margin: 1.2rem 1.5rem 0.5rem;
-        color: var(--color-texto);
+        color: Variables.$color-texto;
     }
  
     p {

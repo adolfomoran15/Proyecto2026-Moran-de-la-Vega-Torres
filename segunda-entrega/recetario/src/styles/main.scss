@@ -1,16 +1,4 @@
-:root {
-    --color-header: #152959;
-    --color-principal: #356B7D;
-    --color-secundario: #6F9EAC;
-    --color-fondo: #F7F4EE;
-    --color-texto: #263238;
-    --color-blanco: #FFFFFF;
-    --color-borde: #D8CFC3;
-
-    --fuente-titulos: 'Playfair Display', serif;
-    --fuente-texto: 'Montserrat', sans-serif;
-    --fuente-decorativa: 'Cormorant Garamond', serif;
-}
+@use 'Variables';
 
 * {
     box-sizing: border-box;
@@ -18,15 +6,15 @@
 
 body {
     margin: 0;
-    background-color: var(--color-fondo);
-    color: var(--color-texto);
-    font-family: var(--fuente-texto);
+    background-color: Variables.$color-fondo;
+    color: Variables.$color-texto;
+    font-family: Variables.$fuente-texto;
 }
 
 .separador {
     width: 98%;
     height: 1px;
-    background-color: var(--color-borde);
+    background-color: Variables.$color-borde;
     border: 0;
     margin: 0.5rem auto;
 }
@@ -35,9 +23,9 @@ body {
     padding: 0.7rem 1.2rem;
     border: none;
     border-radius: 8px;
-    background-color: var(--color-header);
-    color: var(--color-blanco);
-    font-family: var(--fuente-texto);
+    background-color: Variables.$color-header;
+    color: Variables.$color-blanco;
+    font-family: Variables.$fuente-texto;
     font-size: 0.9rem;
     font-weight: 600;
     cursor: pointer;
@@ -45,7 +33,7 @@ body {
 
     &:hover,
     &:focus {
-        background-color: var(--color-principal);
+        background-color: Variables.$color-principal;
         transform: translateY(-2px);
     }
 }

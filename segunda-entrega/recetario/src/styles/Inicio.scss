@@ -1,5 +1,4 @@
-$gap-carrusel: 1.5rem;
-$max-destacadas: 6;
+@use 'Variables';
 
 #hero {
     position: relative;
@@ -33,10 +32,10 @@ $max-destacadas: 6;
     z-index: 2;
     width: 80%;
     text-align: center;
-    color: var(--color-blanco);
+    color: Variables.$color-blanco;
 
     h2 {
-        font-family: var(--fuente-decorativa);
+        font-family: Variables.$fuente-decorativa;
         font-size: 3.2rem;
         font-weight: 600;
         font-style: italic;
@@ -54,22 +53,22 @@ $max-destacadas: 6;
     .mensaje-error {
         flex-basis: 100%;
         order: 3;
-        color: var(--color-blanco);
+        color: Variables.$color-blanco;
     }
 }
 
 #input-buscar-recetas {
     width: 50%;
     padding: 0.6rem 0.4rem;
-    border: 1px solid var(--color-borde);
+    border: 1px solid Variables.$color-borde;
     border-radius: 8px;
-    background-color: var(--color-fondo);
-    font-family: var(--fuente-texto);
+    background-color: Variables.$color-fondo;
+    font-family: Variables.$fuente-texto;
     font-size: 0.88rem;
 
     &:focus {
         outline: none;
-        border-color: var(--color-secundario);
+        border-color: Variables.$color-secundario;
     }
 
     &::placeholder {
@@ -78,7 +77,7 @@ $max-destacadas: 6;
 }
 
 .boton-buscar {
-    border: 1px solid var(--color-blanco);
+    border: 1px solid Variables.$color-blanco;
     padding: 0.6rem 1.2rem;
     border-radius: 8px;
 
@@ -98,8 +97,8 @@ $max-destacadas: 6;
     text-align: center;
 
     h2 {
-        font-family: var(--fuente-texto);
-        color: var(--color-texto);
+        font-family: Variables.$fuente-texto;
+        color: Variables.$color-texto;
         font-size: 2rem;
         margin-bottom: 2rem;
     }
@@ -122,7 +121,7 @@ $max-destacadas: 6;
     width: 100%;
     display: flex;
     flex-direction: row;
-    gap: $gap-carrusel;
+    gap: Variables.$gap-carrusel;
     transition: transform 0.4s ease;
 }
 
@@ -131,21 +130,21 @@ $max-destacadas: 6;
     height: 42px;
     border: none;
     border-radius: 50%;
-    background-color: var(--color-header);
-    color: var(--color-blanco);
+    background-color: Variables.$color-header;
+    color: Variables.$color-blanco;
     font-size: 1.8rem;
     line-height: 1;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
 
     &:hover {
-        background-color: var(--color-principal);
+        background-color: Variables.$color-principal;
         transform: scale(1.08);
     }
 }
 
 @for $i from 0 through 2 {
     .posicion-#{$i} { 
-        transform: translateX(calc(#{$i * -100%} - #{$i * $gap-carrusel})); 
+        transform: translateX(calc(#{$i * -100%} - #{$i * Variables.$gap-carrusel})); 
     }
 }
