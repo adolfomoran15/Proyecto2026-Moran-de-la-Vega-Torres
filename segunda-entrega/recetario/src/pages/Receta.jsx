@@ -74,18 +74,12 @@ const Receta = () => {
   }
   if (!recetaActual) {
     return (
-      <div className="pagina-calcular">
-        <div id="img-receta" className="imagen-receta">
-          <img
-            src="/imagenes/pregunta.png"
-            alt="signo de pregunta"
-            id="imagen-pregunta"
-          />
+      <div>
+        <div className="imagen-receta">
+          <img src="/imagenes/pregunta.png" alt="signo de pregunta" />
         </div>
         <div id="texto-receta">
-          <span id="categoria-receta" className="etiqueta-plato">
-            Sin categoría
-          </span>
+          <span className="etiqueta-plato">Sin categoría</span>
           <h3 id="nombre-plato">Sin plato</h3>
           <p id="descripcion-receta">Sin descripción</p>
           <hr />
@@ -105,7 +99,7 @@ const Receta = () => {
   }
 
   return (
-    <div className="pagina-calcular">
+    <div>
       <Button
         type="button"
         className="boton-principal boton-volver-recetas"
@@ -115,7 +109,7 @@ const Receta = () => {
       </Button>
 
       <section id="informacion-recetas">
-        <div id="img-receta" className="imagen-receta">
+        <div className="imagen-receta">
           <img
             src={`/imagenes/${recetaActual.imagen}`}
             alt={recetaActual.nombre}
@@ -124,9 +118,7 @@ const Receta = () => {
         </div>
 
         <div id="texto-receta">
-          <span id="categoria-receta" className="etiqueta-plato">
-            {recetaActual.categoria}
-          </span>
+          <span className="etiqueta-plato">{recetaActual.categoria}</span>
           <h3 id="nombre-plato">{recetaActual.nombre}</h3>
           <p id="descripcion-receta">{recetaActual.descripcion}</p>
 

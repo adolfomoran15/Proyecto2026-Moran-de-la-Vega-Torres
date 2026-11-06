@@ -34,9 +34,9 @@ const Recetas = () => {
       try {
         const data = await getRecetas();
         if (cancelado) return;
-      
+
         setRecetas(data);
-      
+
         let listaInicial = data;
         if (searchWord) {
           listaInicial = data.filter((receta) =>
@@ -218,7 +218,7 @@ const Recetas = () => {
       </aside>
 
       <div id="contenedor-catalogo">
-        <section id="catalogo-recetas">
+        <section>
           <h2>Todas las recetas</h2>
           {mensaje && <p className="mensaje-busqueda">{mensaje}</p>}
           <div id="grilla-recetas">
