@@ -44,7 +44,7 @@ const Inicio = () => {
     const searchWord = busqueda.trim();
 
     if (searchWord === "" || !soloLetras.test(searchWord)) {
-      setErrorBusqueda("Escribí solo letras para buscar una receta.");
+      alert("Escribí solo letras para buscar una receta.");
       setBusqueda("");
       return;
     }
