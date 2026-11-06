@@ -44,7 +44,6 @@
 
     input[type="checkbox"] {
         accent-color: var(--color-header);
-        grid-column: 1;
     }
 
     select {
@@ -74,19 +73,17 @@
     margin-bottom: 1.5rem;
 }
 
-#filtro-ingrediente {
-    display: grid;
-    grid-template-columns: max-content max-content;
-    grid-auto-flow: row dense;
-    align-items: center;
-    column-gap: 0.6rem;
 
-    h3 {
-        grid-column: 1 / -1;
+
+#filtro-ingrediente {
+    div {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
     }
 
     label {
-        grid-column: 2;
+        margin: 0.3rem 0;
     }
 }
 
@@ -98,25 +95,27 @@
     margin-top: 1rem;
 }
 
-.boton-aplicar-filtros,
+.boton-aplicar-filtros {
+    width: 100%;
+}
+
 .boton-limpiar-filtros {
     width: 100%;
     padding: 0.7rem 1rem;
     border: none;
-    border-radius: 7px;
+    border-radius: 8px;
+    background-color: rgba(194, 0, 0, 0.922);
+    color: var(--color-blanco);
     font-family: var(--fuente-texto);
     font-size: 0.9rem;
     font-weight: 600;
     cursor: pointer;
+    transition: transform 0.3s ease;
 
-    &:hover {
+    &:hover,
+    &:focus {
         transform: translateY(-2px);
     }
-}
-
-.boton-limpiar-filtros {
-    background-color: rgba(194, 0, 0, 0.922);
-    color: var(--color-blanco);
 }
 
 #contenedor-catalogo {
@@ -131,4 +130,9 @@
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
+}
+
+.mensaje-busqueda {
+  color: var(--color-secundario);
+  margin-bottom: 1rem;
 }

@@ -172,6 +172,9 @@
             font-size: 1rem;
             text-align: center;
         }
+        .boton-calcular {
+        align-self: center;
+        }
     }
 }
  
@@ -192,11 +195,14 @@
         gap: 0.8rem;
     }
  
-    li label {
+        li {
         display: flex;
         align-items: center;
         gap: 0.6rem;
         font-size: 0.8rem;
+    }
+
+    label {
         cursor: pointer;
     }
  
@@ -319,4 +325,12 @@
             }
         }
     }
+}
+
+    .separador {
+    width: 98%;
+    height: 1px;
+    background-color: var(--color-borde);
+    border: 0;
+    margin: 0.5rem auto;
 }
