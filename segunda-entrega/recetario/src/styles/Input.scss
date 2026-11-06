@@ -1,4 +1,4 @@
-@use '@styles/_variables';
+@use '@styles/variables';
 
 .mensaje-error {
     margin: 0.2rem 0 0;
@@ -8,5 +8,5 @@
 }
  
 input[aria-invalid="true"] {
-    border-color: vaiables.$color-error;
+    border-color: variables.$color-error;
 }
