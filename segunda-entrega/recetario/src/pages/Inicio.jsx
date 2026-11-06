@@ -84,7 +84,7 @@ const Inicio = () => {
               placeholder="Ej: milanesa, sopa de calabaza..."
               maxLength={40}
             />
-            <Button type="submit" className="boton-buscar">
+            <Button type="submit" className="boton-principal boton-buscar">
               Buscar
             </Button>
           </form>
