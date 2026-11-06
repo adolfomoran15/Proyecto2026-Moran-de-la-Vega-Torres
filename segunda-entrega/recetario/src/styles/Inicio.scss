@@ -143,7 +143,7 @@
     }
 }
 
-@for $i from 0 through 2 {
+@for $i from 0 through variables.$destacadas - 1 {
     .posicion-#{$i} { 
         transform: translateX(calc(#{$i * -100%} - #{$i * variables.$gap-carrusel})); 
     }
