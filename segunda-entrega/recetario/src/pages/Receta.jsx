@@ -113,7 +113,6 @@ const Receta = () => {
           <img
             src={`/imagenes/${recetaActual.imagen}`}
             alt={recetaActual.nombre}
-            id={`imagen-${recetaActual.id}`}
           />
         </div>
 
