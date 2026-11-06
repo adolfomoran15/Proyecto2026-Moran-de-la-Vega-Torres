@@ -17,53 +17,57 @@ const redesSociales = [
   { nombre: "facebook", alt: "Facebook", icono: "/imagenes/facebook-icon.png" },
 ];
 
-const validarCampo = (campo, valor) => {
-  if (campo === "nombre" && (valor.trim() === "" || !soloLetras.test(valor))) {
-    return "Ingresá un nombre válido (solo letras).";
-  }
-  if (campo === "email" && !formatoEmail.test(valor)) {
-    return "Ingresá un email válido.";
-  }
-  if (campo === "mensaje" && valor.trim() === "") {
-    return "Escribí un mensaje.";
-  }
-  return "";
-};
-
-const formularioVacio = { nombre: "", email: "", mensaje: "" };
-
 const Contacto = () => {
-  const [form, setForm] = useState(formularioVacio);
-  const [errores, setErrores] = useState(formularioVacio);
-  const [estadoEnvio, setEstadoEnvio] = useState("");
+  const [nombre, setNombre] = useState("");
+  const [email, setEmail] = useState("");
+  const [mensaje, setMensaje] = useState("");
+  const [errorNombre, setErrorNombre] = useState("");
+  const [errorEmail, setErrorEmail] = useState("");
+  const [errorMensaje, setErrorMensaje] = useState("");
 
-  const handleChange = (campo) => (e) => {
-    const valor = e.target.value;
-    setForm({ ...form, [campo]: valor });
-    setErrores({ ...errores, [campo]: validarCampo(campo, valor) });
-    setEstadoEnvio("");
+  const handleNombre = (e) => {
+    setNombre(e.target.value);
+    setErrorNombre(
+      soloLetras.test(e.target.value)
+        ? ""
+        : "Ingresá un nombre válido (solo letras).",
+    );
+  };
+
+  const handleEmail = (e) => {
+    setEmail(e.target.value);
+    setErrorEmail(
+      formatoEmail.test(e.target.value) ? "" : "Ingresá un email válido.",
+    );
+  };
+
+  const handleMensaje = (e) => {
+    setMensaje(e.target.value);
+    setErrorMensaje(e.target.value.trim() === "" ? "Escribí un mensaje." : "");
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const nuevosErrores = {
-      nombre: validarCampo("nombre", form.nombre),
-      email: validarCampo("email", form.email),
-      mensaje: validarCampo("mensaje", form.mensaje),
-    };
-    setErrores(nuevosErrores);
-
-    if (nuevosErrores.nombre || nuevosErrores.email || nuevosErrores.mensaje) {
+    if (
+      !nombre ||
+      !email ||
+      !mensaje ||
+      errorNombre ||
+      errorEmail ||
+      errorMensaje
+    ) {
+      alert("Completá todos los campos correctamente.");
       return;
     }
-
     try {
-      await postMensaje(form);
-      setEstadoEnvio("¡Gracias por escribirnos!");
-      setForm(formularioVacio);
+      await postMensaje({ nombre, email, mensaje });
+      alert("¡Gracias por escribirnos!");
+      setNombre("");
+      setEmail("");
+      setMensaje("");
     } catch (error) {
       console.error("No se pudo enviar el mensaje:", error);
-      setEstadoEnvio("No pudimos enviar tu mensaje. Intentá más tarde.");
+      alert("No pudimos enviar tu mensaje. Intentá más tarde.");
     }
   };
 
@@ -76,43 +80,39 @@ const Contacto = () => {
           salió la receta? ¡Escribinos!
         </p>
       </div>
+
       <form className="contenedor-form" onSubmit={handleSubmit} noValidate>
         <Input
           id="input-nombre"
           label="Nombre:"
-          value={form.nombre}
-          onChange={handleChange("nombre")}
-          error={errores.nombre}
+          value={nombre}
+          onChange={handleNombre}
+          error={errorNombre}
           placeholder="Tu nombre"
           maxLength={50}
         />
         <Input
           id="input-email"
-          label="Email:"
           type="email"
-          value={form.email}
-          onChange={handleChange("email")}
-          error={errores.email}
+          label="Email:"
+          value={email}
+          onChange={handleEmail}
+          error={errorEmail}
           placeholder="tuemail@ejemplo.com"
           maxLength={50}
         />
         <Input
           id="input-mensaje"
           label="Mensaje:"
-          value={form.mensaje}
-          onChange={handleChange("mensaje")}
-          error={errores.mensaje}
+          value={mensaje}
+          onChange={handleMensaje}
+          error={errorMensaje}
           placeholder="Contanos qué te pareció"
           maxLength={500}
         />
         <Button type="submit" className="boton-principal boton-enviar">
           Enviar
         </Button>
-        {estadoEnvio && (
-          <p className="estado-envio" role="status">
-            {estadoEnvio}
-          </p>
-        )}
       </form>
 
       <hr className="separador" />

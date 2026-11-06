@@ -4,6 +4,17 @@ import Card from "@components/Card";
 import { getRecetas } from "@api/recetasApi";
 import "@styles/Recetas.scss";
 
+const ingredientesIniciales = {
+  papa: false,
+  tomate: false,
+  queso: false,
+  lechuga: false,
+  carne: false,
+  huevo: false,
+  cebolla: false,
+  harina: false,
+};
+
 const Recetas = () => {
   const [recetas, setRecetas] = useState([]);
   const [recetasFiltradas, setRecetasFiltradas] = useState([]);
@@ -11,16 +22,9 @@ const Recetas = () => {
   const [tipoPlatoTeoria, setTipoPlatoTeoria] = useState("todas");
   const [tiempo, setTiempo] = useState("todos");
   const [mensaje, setMensaje] = useState("");
-  const [ingredientesSeleccionados, setIngredientesSeleccionados] = useState({
-    papa: false,
-    tomate: false,
-    queso: false,
-    lechuga: false,
-    carne: false,
-    huevo: false,
-    cebolla: false,
-    harina: false,
-  });
+  const [ingredientesSeleccionados, setIngredientesSeleccionados] = useState(
+    ingredientesIniciales,
+  );
 
   // Cargar recetas al iniciar el componente y verificar si hay una búsqueda previa en localStorage
   useEffect(() => {
@@ -99,6 +103,9 @@ const Recetas = () => {
       );
     }
 
+    setMensaje(
+      resultado.length === 0 ? "No hay recetas con esos filtros." : "",
+    );
     setRecetasFiltradas(resultado);
   };
 
@@ -106,16 +113,7 @@ const Recetas = () => {
     setCategoria("todas");
     setTipoPlatoTeoria("todas");
     setTiempo("todos");
-    setIngredientesSeleccionados({
-      papa: false,
-      tomate: false,
-      queso: false,
-      lechuga: false,
-      carne: false,
-      huevo: false,
-      cebolla: false,
-      harina: false,
-    });
+    setIngredientesSeleccionados(ingredientesIniciales);
     setMensaje("");
     setRecetasFiltradas(recetas);
   };
@@ -203,7 +201,7 @@ const Recetas = () => {
           </Button>
           <Button
             type="button"
-            className="boton-limpiar-filtros"
+            className="boton-principal boton-limpiar-filtros"
             onClick={limpiarFiltros}
           >
             Limpiar filtros
