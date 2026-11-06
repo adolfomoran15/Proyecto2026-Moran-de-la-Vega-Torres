@@ -1,10 +1,12 @@
+@use '@styles/variables';
+
 .boton-principal {
     padding: 0.7rem 1.2rem;
     border: none;
     border-radius: 8px;
-    background-color: var(--color-header);
-    color: var(--color-blanco);
-    font-family: var(--fuente-texto);
+    background-color: variables.$color-header;
+    color: variables.$color-blanco;
+    font-family: variables.$fuente-texto;
     font-size: 0.9rem;
     font-weight: 600;
     cursor: pointer;
@@ -12,7 +14,7 @@
 
     &:hover,
     &:focus {
-        background-color: var(--color-principal);
+        background-color: variables.$color-principal;
         transform: translateY(-2px);
     }
 }

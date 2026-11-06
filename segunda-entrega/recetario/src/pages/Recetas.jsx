@@ -26,16 +26,17 @@ const Recetas = () => {
     ingredientesIniciales,
   );
 
-  // Cargar recetas al iniciar el componente y verificar si hay una búsqueda previa en localStorage
   useEffect(() => {
+    let cancelado = false;
+    const searchWord = localStorage.getItem("searchWord");
+
     const cargarDatos = async () => {
       try {
         const data = await getRecetas();
+        if (cancelado) return;
+      
         setRecetas(data);
-
-        const searchWord = localStorage.getItem("searchWord");
-        localStorage.removeItem("searchWord");
-
+      
         let listaInicial = data;
         if (searchWord) {
           listaInicial = data.filter((receta) =>
@@ -51,9 +52,16 @@ const Recetas = () => {
         setRecetasFiltradas(listaInicial);
       } catch (error) {
         console.error("No se pudieron cargar las recetas:", error);
+      } finally {
+        localStorage.removeItem("searchWord");
       }
     };
+
     cargarDatos();
+
+    return () => {
+      cancelado = true;
+    };
   }, []);
 
   const handleIngredienteChange = (e) => {
