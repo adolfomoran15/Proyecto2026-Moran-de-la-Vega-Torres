@@ -1,4 +1,4 @@
-@use 'Variables';
+@use '@styles/_variables';
 
 * {
     box-sizing: border-box;
@@ -6,34 +6,15 @@
 
 body {
     margin: 0;
-    background-color: Variables.$color-fondo;
-    color: Variables.$color-texto;
-    font-family: Variables.$fuente-texto;
+    background-color: variables.$color-fondo;
+    color: variables.$color-texto;
+    font-family: variables.$fuente-texto;
 }
 
 .separador {
     width: 98%;
     height: 1px;
-    background-color: Variables.$color-borde;
+    background-color: variables.$color-borde;
     border: 0;
     margin: 0.5rem auto;
-}
-
-.boton-principal {
-    padding: 0.7rem 1.2rem;
-    border: none;
-    border-radius: 8px;
-    background-color: Variables.$color-header;
-    color: Variables.$color-blanco;
-    font-family: Variables.$fuente-texto;
-    font-size: 0.9rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-
-    &:hover,
-    &:focus {
-        background-color: Variables.$color-principal;
-        transform: translateY(-2px);
-    }
 }

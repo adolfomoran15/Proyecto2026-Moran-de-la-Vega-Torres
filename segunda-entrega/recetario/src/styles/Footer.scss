@@ -1,8 +1,8 @@
-@use 'Variables';
+@use '@styles/_variables';
 
 footer {
-    background-color: Variables.$color-header;
-    color: Variables.$color-blanco;
+    background-color: variables.$color-header;
+    color: variables.$color-blanco;
     width: 100%;
     box-sizing: border-box;
 
@@ -21,7 +21,7 @@ footer #nav-texto {
     
     h6 {
         margin: 0;
-        font-family: Variables.$fuente-titulos;
+        font-family: variables.$fuente-titulos;
         font-size: 1.1rem;
         font-weight: 600;
     }
@@ -42,7 +42,7 @@ footer #nav-sitio {
         font-size: 0.9rem;
         position: relative;
         padding-bottom: 0.3rem;
-        color: Variables.$color-blanco;
+        color: variables.$color-blanco;
 
         transition: color 0.3s ease;
 
@@ -55,13 +55,13 @@ footer #nav-sitio {
             width: 0;
             height: 2px;
 
-            background-color: Variables.$color-blanco;
+            background-color: variables.$color-blanco;
 
             transition: width 0.3s ease;
         }
 
         &:hover, &:focus{
-            color: Variables.$color-secundario;
+            color: variables.$color-secundario;
         }
 
         &:hover::after,

@@ -1,10 +1,10 @@
-@use 'Variables';
+@use '@styles/_variables';
 
 .contenedor-texto {
     text-align: center;
     font-size: 1.2rem;
     font-weight: 500;
-    color: Variables.$color-texto;
+    color: variables.$color-texto;
     margin: 2rem 0;
 }
  
@@ -20,7 +20,7 @@
     label {
         font-size: 0.9rem;
         font-weight: 600;
-        color: Variables.$color-texto;
+        color: variables.$color-texto;
         margin-top: 0.6rem;
     }
  
@@ -28,15 +28,15 @@
     input[type="email"] {
         width: 100%;
         padding: 0.7rem 0.9rem;
-        border: 1px solid Variables.$color-borde;
+        border: 1px solid variables.$color-borde;
         border-radius: 8px;
-        background-color: Variables.$color-blanco;
-        font-family: Variables.$fuente-texto;
+        background-color: variables.$color-blanco;
+        font-family: variables.$fuente-texto;
         font-size: 0.95rem;
  
         &:focus {
             outline: none;
-            border-color: Variables.$color-secundario;
+            border-color: variables.$color-secundario;
         }
     }
  
@@ -54,7 +54,7 @@
 .estado-envio {
     align-self: center;
     font-weight: 600;
-    color: Variables.$color-principal;
+    color: variables.$color-principal;
 }
  
 .icono-red-social {
@@ -72,7 +72,7 @@
     p {
         font-size: 1.2rem;
         font-weight: 500;
-        color: Variables.$color-texto;
+        color: variables.$color-texto;
     }
 }
  
@@ -88,11 +88,11 @@
         display: flex;
         align-items: center;
         gap: 0.8rem;
-        background-color: Variables.$color-blanco;
+        background-color: variables.$color-blanco;
         padding: 0.8rem 1.2rem;
         margin-bottom: 1rem;
         border-radius: 10px;
-        border: 1px solid Variables.$color-borde;
+        border: 1px solid variables.$color-borde;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     }
 }

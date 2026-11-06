@@ -1,4 +1,4 @@
-@use 'Variables';
+@use '@styles/_variables';
 
 .pagina-recetas {
     display: flex;
@@ -14,8 +14,8 @@
 }
 
 #filtros {
-    background-color: Variables.$color-blanco;
-    border: 1px solid Variables.$color-borde;
+    background-color: variables.$color-blanco;
+    border: 1px solid variables.$color-borde;
     border-radius: 15px;
     padding: 3px;
     box-shadow: 0 4px 15px rgba(0, 28, 138, 0.37);
@@ -24,7 +24,7 @@
         margin: 0 0 1.5rem;
         font-size: 2rem;
         font-weight: 600;
-        color: Variables.$color-texto;
+        color: variables.$color-texto;
         text-align: center;
     }
 
@@ -33,7 +33,7 @@
         margin: 0 0 0.8rem;
         font-size: 1rem;
         font-weight: 600;
-        color: Variables.$color-principal;
+        color: variables.$color-principal;
         display: block;
     }
 
@@ -45,25 +45,25 @@
     }
 
     input[type="checkbox"] {
-        accent-color: Variables.$color-header;
+        accent-color: variables.$color-header;
     }
 
     select {
         display: block;
         width: 90%;
         padding: 0.5rem;
-        border: 1px solid Variables.$color-borde;
+        border: 1px solid variables.$color-borde;
         border-radius: 7px;
-        background-color: Variables.$color-fondo;
-        color: Variables.$color-texto;
-        font-family: Variables.$fuente-texto;
+        background-color: variables.$color-fondo;
+        color: variables.$color-texto;
+        font-family: variables.$fuente-texto;
         font-size: 0.9rem;
         cursor: pointer;
         margin: 0 auto;
 
         &:focus {
             outline: none;
-            border-color: Variables.$color-secundario;
+            border-color: variables.$color-secundario;
         }
     }
 }
@@ -107,8 +107,8 @@
     border: none;
     border-radius: 8px;
     background-color: rgba(194, 0, 0, 0.922);
-    color: Variables.$color-blanco;
-    font-family: Variables.$fuente-texto;
+    color: variables.$color-blanco;
+    font-family: variables.$fuente-texto;
     font-size: 0.9rem;
     font-weight: 600;
     cursor: pointer;
@@ -135,6 +135,6 @@
 }
 
 .mensaje-busqueda {
-  color: Variables.$color-secundario;
+  color: variables.$color-secundario;
   margin-bottom: 1rem;
 }

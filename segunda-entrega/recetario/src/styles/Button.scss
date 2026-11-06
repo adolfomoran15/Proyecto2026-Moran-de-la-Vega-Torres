@@ -1,16 +1,20 @@
-.boton-ver-receta,
-.boton-buscar,
-.boton-aplicar-filtros,
-.boton-enviar {
-    background-color: $color-header;
-    color: $color-blanco;
-    font-family: $fuente-texto;
+@use '@styles/_variables';
+
+.boton-principal {
+    padding: 0.7rem 1.2rem;
+    border: none;
+    border-radius: 8px;
+    background-color: variables.$color-header;
+    color: variables.$color-blanco;
+    font-family: variables.$fuente-texto;
+    font-size: 0.9rem;
+    font-weight: 600;
     cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+
+    &:hover,
+    &:focus {
+        background-color: variables.$color-principal;
+        transform: translateY(-2px);
+    }
 }
- 
-.boton-ver-receta:hover,
-.boton-buscar:hover,
-.boton-enviar:hover {
-    background-color: $color-principal;
-}
- 
