@@ -146,9 +146,6 @@ const Recetas = () => {
             <h3>Ingredientes</h3>
             {Object.keys(ingredientesSeleccionados).map((ing) => (
               <div key={ing}>
-                <label htmlFor={`check-ing-${ing}`}>
-                  {ing.charAt(0).toUpperCase() + ing.slice(1)}
-                </label>
                 <input
                   type="checkbox"
                   id={`check-ing-${ing}`}
@@ -156,6 +153,9 @@ const Recetas = () => {
                   checked={ingredientesSeleccionados[ing]}
                   onChange={handleIngredienteChange}
                 />
+                <label htmlFor={`check-ing-${ing}`}>
+                  {ing.charAt(0).toUpperCase() + ing.slice(1)}
+                </label>
               </div>
             ))}
           </div>
