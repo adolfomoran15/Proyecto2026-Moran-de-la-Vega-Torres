@@ -123,9 +123,7 @@ const Contacto = () => {
           {redesSociales.map((red) => (
             <article key={red.nombre}>
               <img src={red.icono} alt={red.alt} className="icono-red-social" />
-              <div className="contenedor-texto">
-                <p>@recetario.ses</p>
-              </div>
+              <p>@recetario.ses</p>
             </article>
           ))}
         </div>

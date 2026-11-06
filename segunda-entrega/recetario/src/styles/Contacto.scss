@@ -1,12 +1,5 @@
 @use '@styles/variables';
 
-.contenedor-texto {
-    text-align: center;
-    font-size: 1.2rem;
-    font-weight: 500;
-    color: variables.$color-texto;
-    margin: 2rem 0;
-}
  
 .contenedor-form {
     display: flex;
