@@ -1,6 +1,6 @@
 {
   "recetas": [
-    { "id": 1, "slug": "sopa-calabaza", "nombre": "Sopa de calabaza", "descripcion": "Cremosa, rápida y perfecta para el invierno.", "categoria": "Sopas", "teoria": "sopa", "destacada": true, "tipoPlato": "Entrada", "minutos": 20, "imagen": "Sopa-Calabaza.jpg",
+    { "id": 1, "nombre": "Sopa de calabaza", "descripcion": "Cremosa, rápida y perfecta para el invierno.", "categoria": "Sopas", "teoria": "sopa", "destacada": true, "tipoPlato": "Entrada", "minutos": 20, "imagen": "Sopa-Calabaza.jpg",
       "ingredientes": [
         { "tipoIngrediente": "calabaza", "nombre": "Calabaza", "cantidad": 150, "unidad": "g" },
         { "tipoIngrediente": "cebolla", "nombre": "Cebolla", "cantidad": 0.25, "unidad": "unidad" },
@@ -16,7 +16,7 @@
         "Incorporar la crema de leche, ajustar con sal y pimienta, y calentar 1 minuto más antes de servir."
       ]
     },
-    { "id": 2, "slug": "sandwich-milanesa", "nombre": "Sándwich de milanesa", "descripcion": "El clásico de fin de semana, a puro pan y milanesa.", "categoria": "Sándwiches", "teoria": "sandwich", "destacada": true, "tipoPlato": "Principal", "minutos": 15, "imagen": "Sandwich-Milanesa.jpg",
+    { "id": 2, "nombre": "Sándwich de milanesa", "descripcion": "El clásico de fin de semana, a puro pan y milanesa.", "categoria": "Sándwiches", "teoria": "sandwich", "destacada": true, "tipoPlato": "Principal", "minutos": 15, "imagen": "Sandwich-Milanesa.jpg",
       "ingredientes": [
         { "tipoIngrediente": "milanesa", "nombre": "Milanesa de carne cocida", "cantidad": 1, "unidad": "unidad" },
         { "tipoIngrediente": "pan", "nombre": "Pan francés o baguette", "cantidad": 0.5, "unidad": "unidad" },
@@ -31,7 +31,7 @@
         "Acomodar la milanesa tibia en la base, disponer encima el tomate y la lechuga, y cerrar el sándwich presionando ligeramente."
       ]
     },
-    { "id": 3, "slug": "ensalada-cesar", "nombre": "Ensalada César", "descripcion": "Fresca, liviana y lista en menos de 15 minutos.", "categoria": "Ensaladas", "teoria": "ensalada", "destacada": true, "tipoPlato": "Entrada", "minutos": 15, "imagen": "Ensalada-Cesar.jpg",
+    { "id": 3, "nombre": "Ensalada César", "descripcion": "Fresca, liviana y lista en menos de 15 minutos.", "categoria": "Ensaladas", "teoria": "ensalada", "destacada": true, "tipoPlato": "Entrada", "minutos": 15, "imagen": "Ensalada-Cesar.jpg",
       "ingredientes": [
         { "tipoIngrediente": "lechuga", "nombre": "Lechuga romana", "cantidad": 0.25, "unidad": "planta" },
         { "tipoIngrediente": "pollo", "nombre": "Pechuga de pollo a la plancha", "cantidad": 100, "unidad": "g" },
@@ -46,7 +46,7 @@
         "Bañar con el aderezo César y coronar con las escamas o ralladura de queso parmesano."
       ]
     },
-    { "id": 4, "slug": "guiso-lentejas", "nombre": "Guiso de lentejas", "descripcion": "Casero y abundante, de esos que se cocinan a fuego lento.", "categoria": "Guisos", "teoria": "sopa", "destacada": false, "tipoPlato": "Principal", "minutos": 60, "imagen": "Guiso-Lentejas.jpg",
+    { "id": 4, "nombre": "Guiso de lentejas", "descripcion": "Casero y abundante, de esos que se cocinan a fuego lento.", "categoria": "Guisos", "teoria": "sopa", "destacada": false, "tipoPlato": "Principal", "minutos": 60, "imagen": "Guiso-Lentejas.jpg",
       "ingredientes": [
         { "tipoIngrediente": "lentejas", "nombre": "Lentejas hidratadas", "cantidad": 100, "unidad": "g" },
         { "tipoIngrediente": "chorizo", "nombre": "Chorizo colorado", "cantidad": 0.25, "unidad": "unidad" },
@@ -65,7 +65,7 @@
         "Incorporar la papa cortada en cubos y continuar la cocción unos 15 minutos más hasta que la papa esté blanda y el caldo haya espesado."
       ]
     },
-    { "id": 5, "slug": "torta-chocolate", "nombre": "Torta de chocolate", "descripcion": "Bizcochuelo húmedo con relleno y cobertura de chocolate.", "categoria": "Postres", "teoria": "sandwich", "destacada": false, "tipoPlato": "Postre", "minutos": 45, "imagen": "Torta-Chocolate.jpg",
+    { "id": 5, "nombre": "Torta de chocolate", "descripcion": "Bizcochuelo húmedo con relleno y cobertura de chocolate.", "categoria": "Postres", "teoria": "sandwich", "destacada": false, "tipoPlato": "Postre", "minutos": 45, "imagen": "Torta-Chocolate.jpg",
       "ingredientes": [
         { "tipoIngrediente": "harina", "nombre": "Harina 0000", "cantidad": 60, "unidad": "g" },
         { "tipoIngrediente": "cacao", "nombre": "Cacao amargo en polvo", "cantidad": 20, "unidad": "g" },
@@ -84,7 +84,7 @@
         "Dejar enfriar bien, desmoldar, cortar al medio y rellenar/cubrir con el dulce de leche o ganache."
       ]
     },
-    { "id": 6, "slug": "chipa", "nombre": "Chipa", "descripcion": "Pancitos de queso y almidón de mandioca, típicos del litoral.", "categoria": "Panadería", "teoria": "sandwich", "destacada": false, "tipoPlato": "Entrada", "minutos": 30, "imagen": "Chipa.png",
+    { "id": 6, "nombre": "Chipa", "descripcion": "Pancitos de queso y almidón de mandioca, típicos del litoral.", "categoria": "Panadería", "teoria": "sandwich", "destacada": false, "tipoPlato": "Entrada", "minutos": 30, "imagen": "Chipa.png",
       "ingredientes": [
         { "tipoIngrediente": "mandioca", "nombre": "Fécula de mandioca", "cantidad": 125, "unidad": "g" },
         { "tipoIngrediente": "queso", "nombre": "Queso de cáscara colorada", "cantidad": 50, "unidad": "g" },
@@ -102,7 +102,7 @@
         "Llevar a horno bien caliente (200°C) durante 15 minutos hasta que estén levemente dorados por fuera."
       ]
     },
-    { "id": 7, "slug": "pollo-papas", "nombre": "Pollo al horno con papas", "descripcion": "Dorado y jugoso, con papas al horno como acompañamiento.", "categoria": "Platos principales", "teoria": "ensalada", "destacada": false, "tipoPlato": "Principal", "minutos": 60, "imagen": "Pollo-Papas.png",
+    { "id": 7, "nombre": "Pollo al horno con papas", "descripcion": "Dorado y jugoso, con papas al horno como acompañamiento.", "categoria": "Platos principales", "teoria": "ensalada", "destacada": false, "tipoPlato": "Principal", "minutos": 60, "imagen": "Pollo-Papas.png",
       "ingredientes": [
         { "tipoIngrediente": "pollo", "nombre": "Presa de pollo (pata/muslo o pechuga)", "cantidad": 1, "unidad": "unidad (apx 350g)" },
         { "tipoIngrediente": "papa", "nombre": "Papas grandes", "cantidad": 1, "unidad": "unidad" },
@@ -119,7 +119,7 @@
         "Hornear a 200°C por 45-50 minutos, dando vuelta la presa de pollo a mitad de cocción para que se dore de ambos lados."
       ]
     },
-    { "id": 8, "slug": "bife-chorizo", "nombre": "Bife de chorizo a la parrilla", "descripcion": "Un corte clásico, a punto, con su costrita por fuera.", "categoria": "Parrilla", "teoria": "ensalada", "destacada": false, "tipoPlato": "Principal", "minutos": 25, "imagen": "Bife-Chorizo.jpg",
+    { "id": 8, "nombre": "Bife de chorizo a la parrilla", "descripcion": "Un corte clásico, a punto, con su costrita por fuera.", "categoria": "Parrilla", "teoria": "ensalada", "destacada": false, "tipoPlato": "Principal", "minutos": 25, "imagen": "Bife-Chorizo.jpg",
       "ingredientes": [
         { "tipoIngrediente": "carne", "nombre": "Bife de chorizo de 3cm de grosor", "cantidad": 250, "unidad": "g" },
         { "tipoIngrediente": "condimentos", "nombre": "Sal gruesa o parrillera", "cantidad": "a gusto", "unidad": "" },
@@ -133,7 +133,7 @@
         "Dejar reposar 2 minutos sobre una tabla antes de cortar para que se redistribuyan los jugos."
       ]
     },
-    { "id": 9, "slug": "provoleta", "nombre": "Provoleta", "descripcion": "Queso derretido a la parrilla, con orégano y aceite de oliva.", "categoria": "Entradas", "teoria": "sopa", "destacada": false, "tipoPlato": "Entrada", "minutos": 10, "imagen": "Provoleta.jpg",
+    { "id": 9, "nombre": "Provoleta", "descripcion": "Queso derretido a la parrilla, con orégano y aceite de oliva.", "categoria": "Entradas", "teoria": "sopa", "destacada": false, "tipoPlato": "Entrada", "minutos": 10, "imagen": "Provoleta.jpg",
       "ingredientes": [
         { "tipoIngrediente": "queso", "nombre": "Queso provolone para parrilla", "cantidad": 1, "unidad": "rodaja (100g)" },
         { "tipoIngrediente": "condimentos", "nombre": "Orégano seco", "cantidad": 0.5, "unidad": "cucharadita" },
@@ -147,7 +147,7 @@
         "Cocinar unos 4-5 minutos hasta que la base esté dorada y crujiente, dar vuelta con espátula, condimentar con orégano, ají molido y aceite de oliva, y cocinar 3 minutos más."
       ]
     },
-    { "id": 10, "slug": "empanadas-carne", "nombre": "Empanadas de carne", "descripcion": "Repulgo casero, jugosas por dentro y doradas por fuera.", "categoria": "Empanadas", "teoria": "sandwich", "destacada": false, "tipoPlato": "Entrada", "minutos": 40, "imagen": "Empanadas.jpg",
+    { "id": 10, "nombre": "Empanadas de carne", "descripcion": "Repulgo casero, jugosas por dentro y doradas por fuera.", "categoria": "Empanadas", "teoria": "sandwich", "destacada": false, "tipoPlato": "Entrada", "minutos": 40, "imagen": "Empanadas.jpg",
       "ingredientes": [
         { "tipoIngrediente": "tapa", "nombre": "Tapas de empanada", "cantidad": 2, "unidad": "unidades" },
         { "tipoIngrediente": "carne", "nombre": "Carne picada o cortada a cuchillo", "cantidad": 100, "unidad": "g" },
@@ -165,7 +165,7 @@
         "Pincelar con huevo batido y hornear a 220°C (horno bien fuerte) durante 12-15 minutos hasta dorar."
       ]
     },
-    { "id": 11, "slug": "locro", "nombre": "Locro", "descripcion": "Maíz, zapallo y carne, cocidos a fuego lento por horas.", "categoria": "Platos tradicionales", "teoria": "sopa", "destacada": false, "tipoPlato": "Principal", "minutos": 180, "imagen": "Locro.png",
+    { "id": 11, "nombre": "Locro", "descripcion": "Maíz, zapallo y carne, cocidos a fuego lento por horas.", "categoria": "Platos tradicionales", "teoria": "sopa", "destacada": false, "tipoPlato": "Principal", "minutos": 180, "imagen": "Locro.png",
       "ingredientes": [
         { "tipoIngrediente": "maiz", "nombre": "Maíz blanco partido (remojado)", "cantidad": 75, "unidad": "g" },
         { "tipoIngrediente": "porotos", "nombre": "Porotos alubia (remojados)", "cantidad": 50, "unidad": "g" },
@@ -184,7 +184,7 @@
         "Servir muy caliente con salsita picante (quiquirimichi) opcional por encima."
       ]
     },
-    { "id": 12, "slug": "milanesas-pure", "nombre": "Milanesas con puré", "descripcion": "El combo de toda la vida, crocante y cremoso.", "categoria": "Platos principales", "teoria": "ensalada", "destacada": false, "tipoPlato": "Principal", "minutos": 35, "imagen": "Milanesas-Pure.png",
+    { "id": 12, "nombre": "Milanesas con puré", "descripcion": "El combo de toda la vida, crocante y cremoso.", "categoria": "Platos principales", "teoria": "ensalada", "destacada": false, "tipoPlato": "Principal", "minutos": 35, "imagen": "Milanesas-Pure.png",
       "ingredientes": [
         { "tipoIngrediente": "carne", "nombre": "Nalga o bola de lomo para milanesa", "cantidad": 150, "unidad": "g" },
         { "tipoIngrediente": "huevo", "nombre": "Huevo batido con provenzal", "cantidad": 0.5, "unidad": "unidad" },
