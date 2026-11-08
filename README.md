@@ -121,7 +121,8 @@ Proyecto2026-Moran-de-la-Vega-Torres/
   - `src/components/`: componentes reutilizables.
   - `src/pages/`: páginas de cada ruta.
   - `src/styles/`: archivos de estilos `.scss`.
-  - `db.json`: datos del mock de servicios.
+  - `src/data/db.json`: datos del mock de servicios.
+  - `src/utils/`: funciones auxiliares (validaciones).
 
 ## Pasos de ejecución
 
@@ -136,7 +137,7 @@ Proyecto2026-Moran-de-la-Vega-Torres/
 5. Levantar la aplicación y el mock de servicios:
    `npm start`
    - Solo la aplicación: `npm run dev` → http://localhost:5173
-   - Solo el mock: `npm run server` → http://localhost:4000
+   - Solo el mock: `npm run server` → http://localhost:4000 (lee `src/data/db.json`)
 
 
 ## Cómo ver el proyecto
