@@ -9,7 +9,9 @@ const Footer = () => {
         <p>La cocina no discute teorías, las prueba.</p>
       </div>
       <nav id="nav-sitio">
-        <NavLink to="/">Inicio</NavLink>
+        <NavLink to="/" end>
+          Inicio
+        </NavLink>
         <NavLink to="/recetas">Recetas</NavLink>
         <NavLink to="/contacto">Contacto</NavLink>
       </nav>

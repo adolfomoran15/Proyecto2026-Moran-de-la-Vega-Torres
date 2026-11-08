@@ -31,7 +31,9 @@ const Recetas = () => {
         let listaInicial = data;
         if (searchWord) {
           listaInicial = data.filter((receta) =>
-            normalizarTexto(receta.nombre).includes(normalizarTexto(searchWord)),
+            normalizarTexto(receta.nombre).includes(
+              normalizarTexto(searchWord),
+            ),
           );
           if (listaInicial.length === 0) {
             setMensaje(
