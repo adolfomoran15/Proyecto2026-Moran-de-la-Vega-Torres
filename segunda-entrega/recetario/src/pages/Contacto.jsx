@@ -3,7 +3,11 @@ import Input from "@components/Input";
 import Button from "@components/Button";
 import { postMensaje } from "@api/recetasApi";
 import { redesSociales } from "@data/redesSociales";
-import { esTextoValido, esEmailValido, esMensajeValido } from "@utils/validaciones";
+import {
+  esTextoValido,
+  esEmailValido,
+  esMensajeValido,
+} from "@utils/validaciones";
 import "@styles/Contacto.scss";
 
 const Contacto = () => {
@@ -71,7 +75,7 @@ const Contacto = () => {
       setErrorNombre("");
       setErrorEmail("");
       setErrorMensaje("");
-      } catch (error) {
+    } catch (error) {
       console.error("No se pudo enviar el mensaje:", error);
       alert("No pudimos enviar tu mensaje. Intentá más tarde.");
     }
@@ -80,7 +84,7 @@ const Contacto = () => {
   return (
     <div>
       <div>
-        <h3>Contacto</h3>
+        <h2>Contacto</h2>
         <p>
           ¿Tenés alguna sugerencia, consulta o simplemente querés contar cómo
           salió la receta? ¡Escribinos!

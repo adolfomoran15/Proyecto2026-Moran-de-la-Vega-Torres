@@ -51,9 +51,9 @@ const Receta = () => {
   const handlePorcionesChange = (e) => {
     const valor = e.target.value;
     setPorciones(valor);
-    if (valor === "" || valor <= 0) {
+    if (valor === "" || Number(valor) <= 0) {
       setErrorPorciones("Ingresá un número mayor a cero.");
-    } else if (valor > 60) {
+    } else if (Number(valor) > 60) {
       setErrorPorciones("La cantidad máxima es 60.");
     } else {
       setErrorPorciones("");
@@ -80,7 +80,7 @@ const Receta = () => {
         </div>
         <div id="texto-receta">
           <span className="etiqueta-plato">Sin categoría</span>
-          <h3 id="nombre-plato">Sin plato</h3>
+          <h2 id="nombre-plato">Sin plato</h2>
           <p id="descripcion-receta">Sin descripción</p>
           <hr />
           <div className="datos-adicionales">
@@ -118,7 +118,7 @@ const Receta = () => {
 
         <div id="texto-receta">
           <span className="etiqueta-plato">{recetaActual.categoria}</span>
-          <h3 id="nombre-plato">{recetaActual.nombre}</h3>
+          <h2 id="nombre-plato">{recetaActual.nombre}</h2>
           <p id="descripcion-receta">{recetaActual.descripcion}</p>
 
           <hr />
